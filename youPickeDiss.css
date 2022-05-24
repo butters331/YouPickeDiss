@@ -1,3 +1,52 @@
-﻿.headerBar{
-    background-color: lightgrey
+﻿@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+li, a {
+    font-family: 'Staatliches', cursive;
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 30px 10%;
+}
+
+.logo {
+    display:block;
+    cursor: pointer;
+    width: 10%;
+    height: 10%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.navigationLinks{
+    list-style:none;
+    background-color:lightgrey;
+}
+
+.navigationLinks li {
+    display: inline-block;
+    padding:0px 20px;
+    background-color:lightgrey;
+}
+
+.navigationLinks li a {
+    transition: all 0.3s ease 0s;
+    background-color:lightgrey;
+}
+
+.navigationLinks li a:hover{
+    background-color:darkgrey;
+    color:black;
 }
