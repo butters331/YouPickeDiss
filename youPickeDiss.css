@@ -2,8 +2,32 @@
 * {
     font-family: 'Staatliches';
     font-style: normal;
-    font-size:large;
+    font-size:16px;
 }
+
+/* If the screen size is 600px wide or less, set the font-size to 12px */
+@media screen and (max-width: 600px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+.basket {
+    color: rgba(255,255,255,.55);
+}
+
+.basket:hover {
+    color: rgba(255,255,255,.75);
+}
+
+.pageInfo {
+    padding-top:50px;
+}
+
+.carousel img {
+    object-fit: contain;
+}
+
 .logo {
     display: block;
     cursor: pointer;
@@ -11,4 +35,10 @@
     height: 20%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.searchBar {
+    width: fit-content;
+    display: inline-block;
+    vertical-align: top;
 }
