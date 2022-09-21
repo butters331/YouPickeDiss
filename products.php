@@ -1,8 +1,4 @@
-﻿<?php
-    include_once 'dbConnect.php';
-?>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
+    <?php include_once 'dbConnect.php';?>
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
@@ -34,22 +31,22 @@
 
                 //if we havented pasted all the products
                 while ($count !== $noOfProducts){
-                    if ($row = mysqli_fetch_assoc($products){
+                    if ($row = mysqli_fetch_assoc($products)){
                         $productId = $row['prodID'];
                         $imgSQL = "SELECT Path FROM ProductImgs WHERE prodID=".$productId.";";
                         $prodImgs = mysqli_query($conn, $imgSQL);
-                        $prodImgArray = mysqli_fetch_all($prodImgs)
+                        $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_row($prodImgs);
                         $imgCounter = 0;
                         if ($noOfImgs != 0){
-                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">'
+                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
                             
-                            for ($x=0; $x<$noOfProducts; $x++){
+                            for ($x=0; $x < $noOfProducts; $x++){
                                 if ($x == 0){
                                     echo '<button type="button" data-bs-target="#product'.$count.'" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
                                 }
                                 else{
-                                    echo '<button type="button" data-bs-target="#product'.$count.'" data-bs-slide-to="'.$x.'" aria-label="Slide '.($x+1).'"></button>'
+                                    echo '<button type="button" data-bs-target="#product'.$count.'" data-bs-slide-to="'.$x.'" aria-label="Slide '.($x+1).'"></button>';
                                 }
                             }
                             echo '</div><div class="carousel-inner">';
@@ -67,7 +64,7 @@
                             echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price'].'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success">Add To Basket</button></div></td>';
                             $count++;
                             if (count % 4 == 0){
-                                echo '</tr><tr>'
+                                echo '</tr><tr>';
                             }
 
                         }//if
