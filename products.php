@@ -14,12 +14,15 @@
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
+    <script src="ItemClicked.js"></script>
 
     <div class="container pageInfo">
         <table width="100%">
 
             <tr>
                 <?php
+                session_start();
+
                 //get products from db and count of them
                 $getProductsSQL = 'SELECT * FROM Products;';
                 $products = mysqli_query($conn, $getProductsSQL);
@@ -39,7 +42,7 @@
                         $noOfImgs = mysqli_num_rows($prodImgs);
                         $imgCounter = 0;
                         if ($noOfImgs != 0){
-                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
+                            echo '<td width="25%"><div class="container productContainer"><div onclick="itemClicked('.$productId.')" id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
                             
                             for ($x=0; $x < $noOfImgs; $x++){
                                 if ($x == 0){
@@ -53,10 +56,10 @@
                             while ($imgCounter != $noOfImgs){
                                 $imgPath = "".$prodImgArray[$imgCounter][0];
                                 if ($imgCounter == 0){
-                                    echo '<div class="carousel-item active"><a href="productPage.html"><img src="';
+                                    echo '<div class="carousel-item active"><a href="productPage.php"><img src="';
                                 }//if first img
                                 else {
-                                    echo '<div class="carousel-item"><a href="productPage.html"><img src="';
+                                    echo '<div class="carousel-item"><a href="productPage.php"><img src="';
                                 }
                                 echo ''.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="..."></a></div>';
                                 $imgCounter++;

@@ -13,6 +13,7 @@
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
+    <script src="ItemClicked.js"></script>
 
     <div class="container pageInfo">
         <h1 class="pageFormat">Black Mens Hoodie</h1>
