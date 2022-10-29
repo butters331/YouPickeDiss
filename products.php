@@ -8,13 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <?php include_once 'dbConnect.php';?>
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
-    <script src="ItemClicked.js"></script>
 
     <div class="container pageInfo">
         <table width="100%">
@@ -22,6 +22,7 @@
             <tr>
                 <?php
                 session_start();
+                $_SESSION["productID"] = 666;
 
                 //get products from db and count of them
                 $getProductsSQL = 'SELECT * FROM Products;';
@@ -42,7 +43,7 @@
                         $noOfImgs = mysqli_num_rows($prodImgs);
                         $imgCounter = 0;
                         if ($noOfImgs != 0){
-                            echo '<td width="25%"><div class="container productContainer"><div onclick="itemClicked('.$productId.')" id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
+                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
                             
                             for ($x=0; $x < $noOfImgs; $x++){
                                 if ($x == 0){
@@ -56,10 +57,10 @@
                             while ($imgCounter != $noOfImgs){
                                 $imgPath = "".$prodImgArray[$imgCounter][0];
                                 if ($imgCounter == 0){
-                                    echo '<div class="carousel-item active"><a href="productPage.php"><img src="';
+                                    echo '<div class="carousel-item active"><a href="productPage.php?productID='.$productId.'"><img src="';
                                 }//if first img
                                 else {
-                                    echo '<div class="carousel-item"><a href="productPage.php"><img src="';
+                                    echo '<div class="carousel-item"><a href="productPage.php?productID='.$productId.'"><img src="';
                                 }
                                 echo ''.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="..."></a></div>';
                                 $imgCounter++;
@@ -77,6 +78,8 @@
                     /* Need to print no img msg*/
 
                 }//while
+
+                mysqli_close($conn);
                 ?>
             </tr>
         </table>

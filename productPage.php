@@ -14,33 +14,69 @@
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
     <script src="ItemClicked.js"></script>
+    <?php
+    include_once 'dbConnect.php';
+    session_start();
+    $_SESSION['productID'] = $_GET['productID'];
+    
+
+    $prodID = $_SESSION['productID'];
+    echo "prodId is ".$prodID;
+    $productInfoSQL = 'SELECT * FROM Products WHERE prodID='.$prodID;
+    $productImgsSQL = 'SELECT Path From ProductImgs Where prodID='.$prodID;
+    $productInfo = mysqli_query($conn, $productInfoSQL);
+    $productImgs = mysqli_query($conn, $productImgsSQL);
+    $noOfImgs = mysqli_num_rows($productImgs);
+
+    $productInfoArray = mysqli_fetch_assoc($productInfo);
+    $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
+    ?>
 
     <div class="container pageInfo">
-        <h1 class="pageFormat">Black Mens Hoodie</h1>
+        <h1 class="pageFormat"><?php echo $productInfoArray['name'];?></h1>
         <p class="pageFormat">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
+            <?php echo $productInfoArray['description'];?>
             <br />
             <br />
-            £TBC
+            <?php echo '£'.$productInfoArray['price'];?>
         </p>
 
         <!-- Carousel with photos on the front page -->
         <div class="container">
             <div id="productBigCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#productBigCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#productBigCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="Pictures/Stock Hoodies/1Front.jpg" class="d-block w-100 productLargeImg" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Pictures/Stock Hoodies/1Back.jpg" class="d-block w-100 productLargeImg" alt="...">
-                    </div>
-                </div>
+            <?php 
+            if($noOfImgs == 0){
+                echo "Error, Image not found";
+            }
+            else{
+                echo '<div class="carousel-indicators">';
+                for($count = 0; $count < $noOfImgs; $count++){
+                    if ($count == 0){
+                        echo '<button type="button" data-bs-target="#productBigCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                    }
+                    else{
+                        echo '<button type="button" data-bs-target="#productBigCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count+1).'"></button>';
+                    }
+                }
+
+                echo '</div>';
+                echo '<div class="carousel-inner">';
+
+                for($count = 0; $count < $noOfImgs; $count++){
+                    if ($count == 0){
+                        echo '<div class="carousel-item active">';
+                    }
+                    else{
+                        echo '<div class="carousel-item">';
+                    }
+                    echo '<img src="'.$productImgsArray[$count].'" class="d-block w-100 productLargeImg" alt="...">';
+                    echo '</div>';
+                }//for
+            }//else
+            
+            mysqli_close($conn);
+            ?>
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#productBigCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
