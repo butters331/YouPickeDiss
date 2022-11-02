@@ -29,7 +29,6 @@
     $noOfImgs = mysqli_num_rows($productImgs);
 
     $productInfoArray = mysqli_fetch_assoc($productInfo);
-    $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
     ?>
 
     <div class="container pageInfo">
@@ -69,7 +68,8 @@
                     else{
                         echo '<div class="carousel-item">';
                     }
-                    echo '<img src="'.$productImgsArray[$count].'" class="d-block w-100 productLargeImg" alt="...">';
+                    $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
+                    echo '<img src="'.$productImgsArray[0].'" class="d-block w-100 productLargeImg" alt="...">';
                     echo '</div>';
                 }//for
             }//else
