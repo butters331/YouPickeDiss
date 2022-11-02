@@ -24,8 +24,39 @@
                 session_start();
                 $_SESSION["productID"] = 666;
 
+                $category = $_GET["category"];
+                $newReleases = FALSE;
+                $catName = "";
+
+                switch($category){
+                    case 0: //new release
+                        $newReleases = TRUE;
+                        break;
+                    case 1:
+                        $catName = "T-Shirt";
+                        break;
+                    case 2:
+                        $catName = "Hoodie";
+                        break;
+                    case 3:
+                        $catName = "Joggers";
+                        break;
+                    case 4:
+                        $catName = "Shorts";
+                        break;
+                    default:
+                        $newReleases = TRUE;
+                }
+
                 //get products from db and count of them
-                $getProductsSQL = 'SELECT * FROM Products;';
+                $getProductsSQL = "";
+                if ($newReleases){
+                    $getProductsSQL = 'SELECT * FROM Products ORDER BY dateAdded DESC;';
+                }
+                else{
+                    $getProductsSQL = 'SELECT * FROM Products WHERE category="'.$catName.'" ORDER BY dateAdded DESC;';
+                }
+                
                 $products = mysqli_query($conn, $getProductsSQL);
                 $noOfProducts = mysqli_num_rows($products);
 
@@ -34,6 +65,9 @@
                 $imgPath = '';
 
                 //if we havented pasted all the products
+                if($newReleases && $noOfProducts > 5){
+                    $noOfProducts = 5;
+                }
                 while ($count !== $noOfProducts){
                     if ($row = mysqli_fetch_assoc($products)){
                         $productId = $row['prodID'];

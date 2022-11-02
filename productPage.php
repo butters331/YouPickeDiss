@@ -21,7 +21,6 @@
     
 
     $prodID = $_SESSION['productID'];
-    echo "prodId is ".$prodID;
     $productInfoSQL = 'SELECT * FROM Products WHERE prodID='.$prodID;
     $productImgsSQL = 'SELECT Path From ProductImgs Where prodID='.$prodID;
     $productInfo = mysqli_query($conn, $productInfoSQL);
