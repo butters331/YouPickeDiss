@@ -25,24 +25,41 @@
             YPD Community
         </p>
 
+        <!-- connect to db and pull imgs -->
+        <?php
+            include_once 'dbConnect.php';
+            $getImages = "SELECT * FROM AboutPageImgs";
+            $images = mysqli_query($conn, $getImages);
+            $noOfImages = mysqli_num_rows($images);
+        ?>
+
         <!-- Carousel with photos on the front page -->
         <div class="container">
             <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <?php
+                        for ($count = 0; $count < $noOfImages; $count++){
+                            if ($count == 0) {
+                                echo '<button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                            }
+                            else {
+                                echo '<button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count + 1).'"></button>';
+                            }
+                        }
+                    ?>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="Pictures/sample1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Pictures/sample2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Pictures/sample3.jpg" class="d-block w-100" alt="...">
-                    </div>
+                <?php
+                    for ($count = 0; $count < $noOfImages; $count++){
+                        $imageArray = mysqli_fetch_assoc($images);
+                        if ($count == 0) {
+                            echo '<div class="carousel-item active"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..."></div>';
+                        }
+                        else {
+                            echo '<div class="carousel-item"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..."></div>';
+                        }
+                    }
+                ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
