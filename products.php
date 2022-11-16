@@ -100,7 +100,7 @@
                                 $imgCounter++;
                             }//while imgs to paste in carousel
 
-                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price'].'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success">Add To Basket</button></div></td>';
+                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price'].'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success" onclick="addToBasket('.$row['prodID'].','.$row['name'].','.$row['price'].','.$row['prodID'].','.$prodImgArray[0].')">Add To Basket</button></div></td>';
                             $count++;
                             if ($count % 4 == 0){
                                 echo '</tr><tr>';
