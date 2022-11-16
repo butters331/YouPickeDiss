@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="cart.js" async></script>
 </head>
 <body>
     <?php include_once 'dbConnect.php';?>
@@ -100,7 +101,18 @@
                                 $imgCounter++;
                             }//while imgs to paste in carousel
 
-                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price'].'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success" onclick="addToBasket('.$row['prodID'].','.$row['name'].','.$row['price'].','.$row['prodID'].','.$prodImgArray[0].')">Add To Basket</button></div></td>';
+                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price']
+                            .'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success" onclick="addToBasket('
+                            .$row['prodID'].
+                            ', `'.$row['name'].
+                            '`, '.$row['price'].
+                            ', '.$row['prodID'].
+                            ', `'.$prodImgArray[0][0]
+                            .'`)">Add To Basket</button></div></td>';
+
+                            // <button type="button" class="btn btn-outline-success" onclick="addToBasket(1, [DUMMY] Black Mens Hoodie, 30.99, 1, Pictures/Stock Hoodies/1Back.jpg))">Add To Basket</button>
+
+
                             $count++;
                             if ($count % 4 == 0){
                                 echo '</tr><tr>';
@@ -125,3 +137,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+
+
+
+

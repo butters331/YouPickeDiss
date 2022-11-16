@@ -1,5 +1,5 @@
 //pull basket from local storage
-const basket = localStorage.getItem('basket');
+var basket = localStorage.getItem('basket');
 
 //if no basket yet, create an empty one
 if (basket == null){
@@ -12,6 +12,7 @@ else{
 function addToBasket(prodID, name, price, imgPath, quantity){
     basket.push([prodID, name, price, imgPath, quantity]);
     localStorage.setItem('basket', JSON.stringify(basket));
+    populateBasket();
 }
 
 function removeFromBasket(prodID){
@@ -19,6 +20,7 @@ function removeFromBasket(prodID){
         if (basket[i][0] == prodID){
             basket.splice(i, 1);
             localStorage.setItem('basket', JSON.stringify(basket));
+            populateBasket();
         }
     }
 }
