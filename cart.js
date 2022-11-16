@@ -3,11 +3,12 @@ var basket = localStorage.getItem('basket');
 
 //if no basket yet, create an empty one
 if (basket == null){
-    basket = [[],[]];
+    basket = [];
 }
 else{
     basket = JSON.parse(basket);
 }
+populateBasket();
 
 function addToBasket(prodID, name, price, imgPath, quantity){
     basket.push([prodID, name, price, imgPath, quantity]);
@@ -26,9 +27,17 @@ function removeFromBasket(prodID){
 }
 
 function populateBasket(){
+    localStorage.clear();
     var basketList = document.getElementById('basketList');
-    basketList.innerHTML = '';
-    basket.forEach(item => {
-        basketList.innerHTML += '<li>'+ item[1] + '</li><li><hr class="dropdown-divider"></li>';
+    if (basket.length == 0){
+        basketList.innerHTML = "basket empty";
+    }
+    else{
+        basketList.innerHTML = '';
+        basket.forEach(item => {
+            basketList.innerHTML += '<li><div class="basketItem"><img src="'+ item[3] + '"></div><div class="basketItem">'+ item[1] +'</div><div class="basketItem">£'+ item[2] +'</div></li><li><hr class="dropdown-divider"></li>';
     });
+    }
+    
 }
+

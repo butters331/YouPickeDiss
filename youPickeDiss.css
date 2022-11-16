@@ -25,6 +25,12 @@ td {
     color: rgba(255,255,255,.75);
 }
 
+.basketItem {
+    display: flex;
+    float: left;
+    width: 30%;
+}
+
 .carousel img {
     object-fit: contain;
 }
