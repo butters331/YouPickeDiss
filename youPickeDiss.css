@@ -26,13 +26,48 @@ td {
 }
 
 .basketItem {
-    display: flex;
+    text-align: center;
+    height: 65px;
+}
+
+/* now just for the image */
+.basketItemContents {
+    font-size: x-small;
     float: left;
-    width: 30%;
+    width: 25%;
+}
+
+.basketItemRemoveBtn {
+    font-size: x-small;
+    float: left;
+    width: 25%;
+    padding-top: 20px;
+}
+
+.basketItemPrice {
+    font-size: x-small;
+    float: left;
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-top: 28px;
+}
+
+.basketItemText {
+    font-size: x-small;
+    float: left;
+    width: 40%;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-top: 28px;
 }
 
 .carousel img {
     object-fit: contain;
+}
+
+.dropdown-menu{
+    min-width: 320px;
 }
 
 .footerLogo {
@@ -81,6 +116,11 @@ td {
     width: 120px;
     height: 200px;
     align-items:center;
+}
+
+.productBasketImage{
+    height:60px;
+    width:40px;
 }
 
 .searchBar {

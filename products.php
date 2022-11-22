@@ -107,9 +107,8 @@
                             .$row['prodID'].
                             ', `'.$row['name'].
                             '`, '.$row['price'].
-                            ', '.$row['prodID'].
                             ', `'.$prodImgArray[0][0]
-                            .'`)">Add To Basket</button></div></td>';
+                            .'`, 1)">Add To Basket</button></div></td>';
 
                             // <button type="button" class="btn btn-outline-success" onclick="addToBasket(1, [DUMMY] Black Mens Hoodie, 30.99, 1, Pictures/Stock Hoodies/1Back.jpg))">Add To Basket</button>
 
