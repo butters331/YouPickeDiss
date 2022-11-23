@@ -34,14 +34,14 @@ td {
 .basketItemContents {
     font-size: x-small;
     float: left;
-    width: 25%;
+    width: 20%;
 }
 
 .basketItemRemoveBtn {
     font-size: x-small;
     float: left;
-    width: 25%;
-    padding-top: 20px;
+    width: 20%;
+    padding-top: 25px;
 }
 
 .basketItemPrice {
@@ -53,10 +53,18 @@ td {
     padding-top: 28px;
 }
 
+.basketItemQuantityBtn {
+    font-size: x-small;
+    float: left;
+    width: 18%;
+    padding-top: 25px;
+    white-space: pre;
+}
+
 .basketItemText {
     font-size: x-small;
     float: left;
-    width: 40%;
+    width: 32%;
     white-space: nowrap;
     overflow: hidden;
     padding-top: 28px;
@@ -171,4 +179,13 @@ td {
         height: 60px;
         width: 40px;
     }
+}
+
+
+/* imported from old bootstrap documentation */
+.btn-group-xs > .btn, .btn-xs {
+    padding: 1px 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
 }
