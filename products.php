@@ -11,7 +11,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="cart.js"></script>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" onload="populateBasket()">
     <?php include_once 'dbConnect.php';?>
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>

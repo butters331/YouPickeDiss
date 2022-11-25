@@ -33,7 +33,6 @@ function incrementBasket(prodID){
         }
     }
     sessionStorage.setItem('basket', JSON.stringify(basket));
-    console.log(JSON.stringify(basket));
     populateBasket();
 }
 

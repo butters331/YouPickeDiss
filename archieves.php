@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" onload="populateBasket()">
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
