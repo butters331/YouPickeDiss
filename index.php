@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
@@ -74,7 +74,7 @@
         </div>
 
     </div>
-    <div w3-include-html="footer.html" style="padding-top:1em;"></div>
+    <div class="mt-auto" w3-include-html="footer.html" style="padding-top:1em;"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

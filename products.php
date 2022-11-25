@@ -11,7 +11,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="cart.js"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php include_once 'dbConnect.php';?>
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
@@ -133,7 +133,7 @@
     </div>
 
 
-    <div w3-include-html="footer.html" style="padding-top:1em;"></div>
+    <div class="mt-auto" w3-include-html="footer.html" style="padding-top:1em;"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
