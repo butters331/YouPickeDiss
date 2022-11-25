@@ -32,6 +32,8 @@ function incrementBasket(prodID){
             basket[i][4] += 1;
         }
     }
+    sessionStorage.setItem('basket', JSON.stringify(basket));
+    console.log(JSON.stringify(basket));
     populateBasket();
 }
 
@@ -41,17 +43,8 @@ function decrementBasket(prodID){
             basket[i][4] -= 1;
         }
     }
-    populateBasket();
-}
-
-function updateQuantities(){
-    for(let i = 0; i < basket.length; i++){
-        if (document.getElementById('quantityOfID' + basket[i][0])!= null){
-            currentQuantity = document.getElementById('quantityOfID' + basket[i][0]);
-            basket[i][4] = parseInt(currentQuantity);
-        }  
-    }
     sessionStorage.setItem('basket', JSON.stringify(basket));
+    populateBasket();
 }
 
 function populateBasket(){

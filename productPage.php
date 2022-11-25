@@ -73,7 +73,6 @@
                 }//for
             }//else
             
-            mysqli_close($conn);
             ?>
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#productBigCarousel" data-bs-slide="prev">
@@ -87,7 +86,11 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-success">Add To Basket</button>
+            <?php 
+                $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
+                echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].','.$productInfoArray['name'].','.$productInfoArray['price'].',"'.$productImgsArray[0].'",1)">Add To Basket</button>';
+                mysqli_close($conn);
+            ?>  
             <br />
             <br />
         </div>
