@@ -11,9 +11,18 @@ else{
 populateBasket();
 
 function addToBasket(prodID, name, price, imgPath, quantity){
-    basket.push([prodID, name, price, imgPath, quantity]);
-    sessionStorage.setItem('basket', JSON.stringify(basket));
-    populateBasket();
+    let alreadyIn = false;
+    for (let x = 0; x < basket.length; x++){
+        if (basket != null && basket[x][0] == prodID){
+            alreadyIn = true;
+        }
+    }
+    if (!alreadyIn){
+        basket.push([prodID, name, price, imgPath, quantity]);
+        sessionStorage.setItem('basket', JSON.stringify(basket));
+        populateBasket();
+    }
+    
 }
 
 function removeFromBasket(prodID){
