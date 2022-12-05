@@ -95,9 +95,13 @@ function populateBasket(){
             while (basketList.firstChild){
                 basketList.removeChild(basketList.firstChild)
             }
+            let basketTotal = 0;
             basket.forEach(item => {
                 basketList.innerHTML += '<li><div class="basketItem"> <div class="basketItemContents"><img class="productBasketImage" src="'+ item[3] + '"></div><div class="basketItemText">'+ item[1] +'</div><div class="basketItemPrice">£'+ item[2] +'</div> <div class="basketItemQuantityBtn">  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementBasket(' + item[0] + ')">-</button>   ' + item[4] + '    <button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementBasket(' + item[0] + ')">+</button></div><div class="basketItemRemoveBtn"><button type="button" class="btn btn-outline-danger btn-xs" onclick="removeFromBasket(' + item[0] + ')">Remove</button></div></div></li><li><hr class="dropdown-divider"></li>';
+                //total = price * quantity
+                basketTotal += (item[2] * item[4]);
             });
+            basketList.innerHTML += '<li><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping: £4.99</p><p class="basketTotal">Total: £' + Number(basketTotal + 4.99).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Checkout </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span class="position-absolute top-20 start-100 translate-middle badge rounded-pill bg-danger">'+ basket.length +'</span>';
         }
     }

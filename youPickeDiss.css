@@ -30,6 +30,19 @@ td {
     white-space: pre;
 }
 
+#procedeToCheckoutBtn {
+    padding-right: 10px;
+}
+
+#procedeToCheckoutDiv{
+    float: right;
+    padding-right: 10px;
+}
+
+#totalLeft {
+    float: left;
+}
+
 .basket {
     color: rgba(255,255,255,.55);
 }
@@ -81,6 +94,13 @@ td {
     white-space: nowrap;
     overflow: hidden;
     padding-top: 28px;
+}
+
+.basketTotal {
+    padding-left: 10px;
+    text-align: left;
+    font-size: x-small;
+    margin: 0;
 }
 
 .carousel img {
