@@ -39,11 +39,39 @@ function incrementBasket(prodID){
 function decrementBasket(prodID){
     for(let i = 0; i < basket.length; i++){
         if (basket[i][0] == prodID){
-            basket[i][4] -= 1;
+            if (basket[i][4] > 1){
+                basket[i][4] -= 1;
+            }
         }
     }
     sessionStorage.setItem('basket', JSON.stringify(basket));
     populateBasket();
+}
+
+function incrementPreBasket(){
+    value = document.getElementById('productQuantity');
+    if (value != null){
+        value.innerHTML = "  " + (parseInt(value.innerHTML) + 1) + "  ";
+    }
+    
+}
+
+function decrementPreBasket(){
+    value = document.getElementById('productQuantity');
+    if (value != null && (parseInt(value.innerHTML) != 1)){
+        value.innerHTML = "  " + (parseInt(value.innerHTML) - 1) + "  ";
+    }
+}
+
+function getPreBasket(){
+    value = document.getElementById('productQuantity');
+    if (value != null){
+        return (parseInt(document.getElementById('productQuantity').innerHTML));
+    }
+    else {
+        return (null);
+    }
+    
 }
 
 function populateBasket(){

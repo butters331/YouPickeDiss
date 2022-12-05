@@ -75,26 +75,32 @@
             
             ?>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#productBigCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productBigCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productBigCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productBigCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div>
-            <?php 
-                $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
-                echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].','.$productInfoArray['name'].','.$productInfoArray['price'].',"'.$productImgsArray[0].'",1)">Add To Basket</button>';
-                mysqli_close($conn);
-            ?>  
-            <br />
-            <br />
-        </div>
+            <div class="quantityButton">
+                <?php 
+                    echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementPreBasket()">+</button>';
+                ?>
 
+            </div>
+            <div class="preAddToBasket">
+                <?php 
+                    echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket())">Add To Basket</button>';
+                    mysqli_close($conn);
+                ?>  
+                <br />
+                <br />
+            </div>
+
+        </div>
     </div>
 
     <div class="mt-auto" w3-include-html="footer.html" style="padding-top:1em;"></div>
