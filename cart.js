@@ -75,6 +75,7 @@ function decrementPreBasket(){
 function getPreBasket(){
     value = document.getElementById('productQuantity');
     if (value != null){
+        console.log(parseInt(document.getElementById('productQuantity').innerHTML));
         return (parseInt(document.getElementById('productQuantity').innerHTML));
     }
     else {
@@ -93,7 +94,7 @@ function populateBasket(){
         }
         else{
             while (basketList.firstChild){
-                basketList.removeChild(basketList.firstChild)
+                basketList.innerHTML = "";
             }
             let basketTotal = 0;
             basket.forEach(item => {

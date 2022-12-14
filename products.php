@@ -63,14 +63,14 @@
                 $noOfProducts = mysqli_num_rows($products);
 
                 //init global variables
-                $count = 0;
+                $productCount = 0;
                 $imgPath = '';
 
                 //if we havented pasted all the products
                 if($newReleases && $noOfProducts > 5){
                     $noOfProducts = 5;
                 }
-                while ($count !== $noOfProducts){
+                while ($productCount !== $noOfProducts){
                     if ($row = mysqli_fetch_assoc($products)){
                         $productId = $row['prodID'];
                         $imgSQL = "SELECT Path FROM ProductImgs WHERE prodID=".$productId.";";
@@ -79,14 +79,14 @@
                         $noOfImgs = mysqli_num_rows($prodImgs);
                         $imgCounter = 0;
                         if ($noOfImgs != 0){
-                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$count.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
+                            echo '<td width="25%"><div class="container productContainer"><div id="product'.$productCount.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel"><div class="carousel-indicators">';
                             
-                            for ($x=0; $x < $noOfImgs; $x++){
-                                if ($x == 0){
-                                    echo '<button type="button" data-bs-target="#product'.$count.'" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                            for ($y=0; $y < $noOfImgs; $y++){
+                                if ($y == 0){
+                                    echo '<button type="button" data-bs-target="#product'.$productCount.'" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
                                 }
                                 else{
-                                    echo '<button type="button" data-bs-target="#product'.$count.'" data-bs-slide-to="'.$x.'" aria-label="Slide '.($x+1).'"></button>';
+                                    echo '<button type="button" data-bs-target="#product'.$productCount.'" data-bs-slide-to="'.$y.'" aria-label="Slide '.($y+1).'"></button>';
                                 }
                             }
                             echo '</div><div class="carousel-inner">';
@@ -102,7 +102,9 @@
                                 $imgCounter++;
                             }//while imgs to paste in carousel
 
-                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br /> £'.$row['price']
+                            
+
+                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br>£'.$row['price']
                             .'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success" onclick="addToBasket('
                             .$row['prodID'].
                             ', `'.$row['name'].
@@ -113,8 +115,8 @@
                             // <button type="button" class="btn btn-outline-success" onclick="addToBasket(1, [DUMMY] Black Mens Hoodie, 30.99, 1, Pictures/Stock Hoodies/1Back.jpg))">Add To Basket</button>
 
 
-                            $count++;
-                            if ($count % 4 == 0){
+                            $productCount++;
+                            if ($productCount % 4 == 0){
                                 echo '</tr><tr>';
                             }
 
@@ -132,9 +134,52 @@
 
     </div>
 
+    <div class="mt-auto" style="padding-top:1em;">
+        
+    <footer class="bg-dark mt-auto" style="color: rgba(255,255,255,.55); padding:1em;">
+        <div class="container" style="text-align:center;">
+            <img class="footerLogo" src="Pictures/ypd.png" />
+            <img class="footerLogo" src="Pictures/4tp.png" />
+        </div>
+        <div class="container" style="text-align:center;">
+            <section class="mb4">
+                <!--facebook-->
+                <a class="btn btn-link btn-lg m-1 basket"
+                   href="#"
+                   role="button"
+                   data-mdb-ripple-color="light">
+                    <i class="bi bi-facebook"></i>
+                </a>
 
-    <div class="mt-auto" w3-include-html="footer.html" style="padding-top:1em;"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                <a class="btn btn-link btn-lg m-1 basket"
+                   href="#"
+                   role="button"
+                   data-mdb-ripple-color="light">
+                    <i class="bi bi-twitter"></i>
+                </a>
+
+                <a class="btn btn-link btn-lg m-1 basket"
+                   href="#"
+                   role="button"
+                   data-mdb-ripple-color="light">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a class="btn btn-link btn-lg m-1 basket"
+                   href="mailto: divine@youpickediss.com"
+                   role="button"
+                   data-mdb-ripple-color="light">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+            </section>
+        </div>
+        <div class="text-center" >
+            © Copyright all rights reserved
+        </div>
+
+    </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
 
