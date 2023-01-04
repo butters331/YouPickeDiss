@@ -104,7 +104,7 @@
 
                             
 
-                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br>£'.$row['price']
+                            echo '</div></div></div><div class="productSubtext">'.$row['name'].'<br>£'.$row['price'].'<br>'.$row['Colour']
                             .'</div><div class="productAddToBasket"><button type="button" class="btn btn-outline-success" onclick="addToBasket('
                             .$row['prodID'].
                             ', `'.$row['name'].

@@ -31,13 +31,6 @@
     ?>
 
     <div class="container pageInfo">
-        <h1 class="pageFormat"><?php echo $productInfoArray['name'];?></h1>
-        <p class="pageFormat">
-            <?php echo $productInfoArray['description'];?>
-            <br />
-            <br />
-            <?php echo '£'.$productInfoArray['price'];?>
-        </p>
 
         <!-- Carousel with photos on the front page -->
         <div class="container">
@@ -85,6 +78,13 @@
                     </button>
                 </div>
             </div>
+            <h1 class="pageFormat"><?php echo $productInfoArray['name'];?></h1>
+        <p class="pageFormat">
+            <?php echo $productInfoArray['description'];?>
+            <br />
+            <br />
+        </p>
+        <h4><?php echo '£'.$productInfoArray['price'].'<br>'.$productInfoArray['Colour'];?></h4>
             <div class="quantityButton">
                 <?php 
                     echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementPreBasket()">+</button>';
