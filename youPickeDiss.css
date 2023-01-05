@@ -5,7 +5,7 @@
     font-size:16px;
 }
 
-/* If the screen size is 600px wide or less, set the font-size to 12px */
+/* If the screen size is 800px wide or less, set the font-size to 12px */
 @media screen and (max-width: 800px) {
     * {
         font-size: 12px;
@@ -120,10 +120,11 @@ td {
 
 .logo {
     display: block;
-    width: 20%;
-    height: 20%;
+    width: 30%;
+    height: 30%;
     margin-left: auto;
     margin-right: auto;
+    padding: 5px;
 }
 
 .pageInfo {
@@ -222,8 +223,7 @@ td {
     }
 
     .productThumbnailImage {
-        height: 60px;
-        width: 40px;
+        height: 70px;
     }
 }
 

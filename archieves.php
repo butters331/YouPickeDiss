@@ -24,12 +24,45 @@
         if($noOfImages > 0){
             for($count = 0; $count < $noOfImages - 1; $count++){
                 $imageArray = mysqli_fetch_assoc($images);
-                echo '<div class="container pageInfo"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." data-bs-toggle="modal" data-bs-target="#picture'.$count.'Modal" /></div>';
-                echo '<div class="modal fade" id="picture'.$count.'Modal" tabindex="-1" aria-labelledby="" aria-hidden="true"><div class="modal-dialog modal-xl modal-fullscreen-lg-down"><div class="modal-content"><div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." /></div><div class="modal-footer"><button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button></div></div></div></div>';
+                echo '
+    <div class="container pageInfo">
+        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." data-bs-toggle="modal" data-bs-target="#picture'.$count.'Modal" />
+    </div>';
+                echo '
+    <div class="modal fade" id="picture'.$count.'Modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+            <div class="modal-content"><div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." />
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>';
             }
             $imageArray = mysqli_fetch_assoc($images);
-            echo '<div class="container pageInfo" style="padding-bottom: 1em;"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." data-bs-toggle="modal" data-bs-target="#picture'.($noOfImages-1).'Modal" /></div>';
-            echo '<div class="modal fade" id="picture'.($noOfImages-1).'Modal" tabindex="-1" aria-labelledby="" aria-hidden="true"><div class="modal-dialog modal-xl modal-fullscreen-lg-down"><div class="modal-content"><div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." /></div><div class="modal-footer"><button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button></div></div></div></div>';
+            echo '
+    <div class="container pageInfo" style="padding-bottom: 1em;">
+        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." data-bs-toggle="modal" data-bs-target="#picture'.($noOfImages-1).'Modal" />
+    </div>';
+            echo '
+    <div class="modal fade" id="picture'.($noOfImages-1).'Modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>';
         }
     ?>
 

@@ -41,10 +41,12 @@
                     <?php
                         for ($count = 0; $count < $noOfImages; $count++){
                             if ($count == 0) {
-                                echo '<button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                                echo '
+                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
                             }
                             else {
-                                echo '<button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count + 1).'"></button>';
+                                echo '
+                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count + 1).'"></button>';
                             }
                         }
                     ?>
@@ -54,10 +56,16 @@
                     for ($count = 0; $count < $noOfImages; $count++){
                         $imageArray = mysqli_fetch_assoc($images);
                         if ($count == 0) {
-                            echo '<div class="carousel-item active"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..."></div>';
+                            echo '
+                    <div class="carousel-item active">
+                        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
+                    </div>';
                         }
                         else {
-                            echo '<div class="carousel-item"><img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..."></div>';
+                            echo '
+                    <div class="carousel-item">
+                        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
+                    </div>';
                         }
                     }
                 ?>
