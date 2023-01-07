@@ -16,15 +16,18 @@
     <script type="text/javascript" src="cart.js"></script>
 
     <div class="container pageInfo">
-        <h1 class="pageFormat">Our Message</h1>
-        <p class="pageFormat">
-            From the streets 4our the people, this isn’t just a brand, we are a community of friends and family. Combining the best of
-            African & British culture and bringing people together to have fun and express themselves. We thank you for picking us and
-            ask you to stay with us through our journey.
-            <br>
-            <br>
-            YPD Community
-        </p>
+        <div>
+            <img class="brandName" src="Pictures/ypdName.png" alt="YouPickedDiss">
+        </div>
+
+        <div style="overflow:hidden;">
+            <div style="width:50%;float:left;padding-bottom:30px;">
+                <a href="products.php?category=0" title="Shop"><img class="landingLinkImgs" src="Pictures/ypd.png"></a>
+            </div>
+            <div style="width:50%;float:right;padding-bottom:30px;">
+                <a href="archieves.php" title="Archieves"><img class="landingLinkImgs" src="Pictures/4tp.png"></a>
+            </div>
+        </div>
 
         <!-- connect to db and pull imgs -->
         <?php
@@ -94,29 +97,36 @@
             <div class="container" style="text-align:center;">
                 <section class="mb4">
                     <!--facebook-->
-                    <a class="btn btn-link btn-lg m-1 basket"
+                    <!-- <a class="btn btn-link btn-lg m-1 basket"
                     href="#"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-facebook"></i>
-                    </a>
+                    </a> -->
 
-                    <a class="btn btn-link btn-lg m-1 basket"
+                    <!-- <a class="btn btn-link btn-lg m-1 basket"
                     href="#"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-twitter"></i>
+                    </a> -->
+
+                    <a class="btn btn-link btn-lg m-1 basket"
+                    href="https://www.tiktok.com/@ypd4tp"
+                    role="button"
+                    data-mdb-ripple-color="light">
+                        <i class="bi bi-tiktok"></i>
                     </a>
 
                     <a class="btn btn-link btn-lg m-1 basket"
-                    href="#"
+                    href="https://www.instagram.com/ypd4tp/"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-instagram"></i>
                     </a>
 
                     <a class="btn btn-link btn-lg m-1 basket"
-                    href="mailto: divine@youpickediss.com"
+                    href="mailto: info@ypd4tp.co.uk"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-envelope-fill"></i>

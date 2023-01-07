@@ -103,6 +103,15 @@ td {
     margin: 0;
 }
 
+.brandName {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    padding-bottom: 8%;
+}
+
 .carousel img {
     object-fit: contain;
 }
@@ -116,6 +125,13 @@ td {
     margin-left: auto;
     margin-right: auto;
     height: 30px;
+}
+
+.landingLinkImgs{
+    display: flex;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logo {

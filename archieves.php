@@ -77,29 +77,36 @@
             <div class="container" style="text-align:center;">
                 <section class="mb4">
                     <!--facebook-->
-                    <a class="btn btn-link btn-lg m-1 basket"
+                    <!-- <a class="btn btn-link btn-lg m-1 basket"
                     href="#"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-facebook"></i>
-                    </a>
+                    </a> -->
 
-                    <a class="btn btn-link btn-lg m-1 basket"
+                    <!-- <a class="btn btn-link btn-lg m-1 basket"
                     href="#"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-twitter"></i>
+                    </a> -->
+
+                    <a class="btn btn-link btn-lg m-1 basket"
+                    href="https://www.tiktok.com/@ypd4tp"
+                    role="button"
+                    data-mdb-ripple-color="light">
+                        <i class="bi bi-tiktok"></i>
                     </a>
 
                     <a class="btn btn-link btn-lg m-1 basket"
-                    href="#"
+                    href="https://www.instagram.com/ypd4tp/"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-instagram"></i>
                     </a>
 
                     <a class="btn btn-link btn-lg m-1 basket"
-                    href="mailto: divine@youpickediss.com"
+                    href="mailto: info@ypd4tp.co.uk"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-envelope-fill"></i>
