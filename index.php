@@ -84,6 +84,25 @@
             </div>
         </div>
 
+        <!-- sign up to mailing list form -->
+        <iframe name="formSending"></iframe>
+        <div class="signUpForm">
+            <form action="signUpForMailing.php" method="post" target="formSending">
+                <label for="landingSignUp" class="form-label">Join the community for updates</label>
+                <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <button type="submit" class="btn btn-success">Click diss to sign up</button>
+            </form>
+        </div>
+
+        <!-- <script>
+            var form = document.getElementById("landingSignUp");
+            function submitForm(event) {
+                event.preventDefault();
+                form.style.display = "none";
+            }
+            form.addEventListener('submit', submitForm);
+        </script> -->
     </div>
 
     <!-- footer import was here -->

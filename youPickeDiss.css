@@ -22,6 +22,12 @@ html {
     height: 100vh;
 }
 
+iframe {
+    display: none;
+    height: 0px;
+    width: 0px;
+}
+
 td {
     padding-bottom: 1em;
 }
@@ -202,6 +208,10 @@ td {
     width: fit-content;
     display: inline-block;
     vertical-align: top;
+}
+
+.signUpForm{
+    padding-top: 1em;
 }
 
 @media screen and (max-width: 1000px) {
