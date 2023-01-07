@@ -101,7 +101,7 @@
                 </div>
                 <div class="preAddToBasket">
                     <?php 
-                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket())">Add To Basket</button>';
+                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket())">Basket Diss</button>';
                         mysqli_close($conn);
                     ?>  
                     <br />

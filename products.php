@@ -125,7 +125,7 @@
                                                                                                             ', `'.$row['name'].
                                                                                                             '`, '.$row['price'].
                                                                                                             ', `'.$prodImgArray[0][0]
-                                                                                                            .'`, 1)">Add To Basket
+                                                                                                            .'`, 1)">Basket Diss
                                     </button>
                                 </div>
                             </td>';
