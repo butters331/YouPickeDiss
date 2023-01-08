@@ -160,7 +160,7 @@
         <footer class="bg-dark mt-auto" style="color: rgba(255,255,255,.55); padding:1em;">
             <div class="container" style="text-align:center;">
                 <img class="footerLogo" src="Pictures/ypd.png" />
-                <img class="footerLogo" src="Pictures/4tp.png" />
+                <!-- <img class="footerLogo" src="Pictures/4tp.png" /> -->
             </div>
             <div class="container" style="text-align:center;">
                 <section class="mb4">

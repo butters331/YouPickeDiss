@@ -32,6 +32,10 @@ td {
     padding-bottom: 1em;
 }
 
+#landingSignUp{
+    padding-bottom: 5px;
+}
+
 #productQuantity{
     white-space: pre;
 }
@@ -109,15 +113,6 @@ td {
     margin: 0;
 }
 
-.brandName {
-    display: block;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px;
-    padding-bottom: 8%;
-}
-
 .carousel img {
     object-fit: contain;
 }
@@ -135,7 +130,7 @@ td {
 
 .landingLinkImgs{
     display: flex;
-    width: 30%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -143,7 +138,7 @@ td {
 .logo {
     display: block;
     width: 30%;
-    height: 30%;
+    /* height: 30%; */
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
@@ -225,6 +220,10 @@ td {
         width: 60px;
         height: 100px;
         vertical-align:central;
+    }
+
+    .logo{
+        width: 50%;
     }
 
     .productThumbnailImage{

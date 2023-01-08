@@ -16,10 +16,6 @@
     <script type="text/javascript" src="cart.js"></script>
 
     <div class="container pageInfo">
-        <div>
-            <img class="brandName" src="Pictures/ypdName.png" alt="YouPickedDiss">
-        </div>
-
         <div style="overflow:hidden;">
             <div style="width:50%;float:left;padding-bottom:30px;">
                 <a href="products.php?category=0" title="Shop"><img class="landingLinkImgs" src="Pictures/ypd.png"></a>
@@ -90,7 +86,7 @@
             <form action="signUpForMailing.php" method="post" target="formSending">
                 <label for="landingSignUp" class="form-label">Join the community for updates</label>
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 <button type="submit" class="btn btn-success">Click diss to sign up</button>
             </form>
         </div>
@@ -111,7 +107,7 @@
         <footer class="bg-dark mt-auto" style="color: rgba(255,255,255,.55); padding:1em;">
             <div class="container" style="text-align:center;">
                 <img class="footerLogo" src="Pictures/ypd.png" />
-                <img class="footerLogo" src="Pictures/4tp.png" />
+                <!-- <img class="footerLogo" src="Pictures/4tp.png" /> -->
             </div>
             <div class="container" style="text-align:center;">
                 <section class="mb4">

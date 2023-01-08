@@ -31,7 +31,11 @@
         }
         else{
             mysqli_stmt_execute($stmt);
+            echo '<script>alert("Sign up Successful")</script>';
         }
+    }
+    else{
+        echo '<script>alert("Youve already signed up!")</script>';
     }
 
 
