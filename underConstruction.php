@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,25 @@
     <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
-<body class="d-flex flex-column min-vh-100" onload="populateBasket()">
-    <!-- code to include header menu-->
-    <div w3-include-html="headerAndMenu.html"></div>
-    <script src="w3-include-HTML.js"></script>
-    <script type="text/javascript" src="cart.js"></script>
 
-    <div class="container pageInfo">
-        <div style="overflow:hidden;">
-            <div style="width:50%;float:left;padding-bottom:30px;">
-                <a href="products.php?category=0" title="Shop"><img class="landingLinkImgs" src="Pictures/ypd.png"></a>
-            </div>
-            <div style="width:50%;float:right;padding-bottom:30px;">
-                <a href="archieves.php" title="Archieves"><img class="landingLinkImgs" src="Pictures/4tp.png"></a>
-            </div>
+<body>
+    <div>
+        <img src="Pictures/ypdName.png" alt="YouPickeDiss" style=" display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="pageLayout">
+        <h1 id="loading">
+            LOADING...
+        </h1>
+        <!-- sign up to mailing list form -->
+        <iframe name="formSending"></iframe>
+        <div class="signUpForm" id="constPageForm">
+            <form action="signUpForMailing.php" method="post" target="formSending">
+                <label for="landingSignUp" class="form-label">Join the community for updates</label>
+                <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                <br>
+                <button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;">Click diss to sign up</button>
+            </form>
         </div>
 
         <!-- connect to db and pull imgs -->
@@ -33,8 +39,8 @@
             $noOfImages = mysqli_num_rows($images);
         ?>
 
-        <!-- Carousel with photos on the front page -->
-        <div class="container">
+         <!-- Carousel with photos on the front page -->
+         <div class="container" style="padding-top: 1em;">
             <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <?php
@@ -79,26 +85,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- sign up to mailing list form -->
-        <iframe name="formSending"></iframe>
-        <div class="signUpForm">
-            <form action="signUpForMailing.php" method="post" target="formSending">
-                <label for="landingSignUp" class="form-label">Join the community for updates</label>
-                <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
-                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                <button type="submit" class="btn btn-success">Click diss to sign up</button>
-            </form>
-        </div>
-
-        <!-- <script>
-            var form = document.getElementById("landingSignUp");
-            function submitForm(event) {
-                event.preventDefault();
-                form.style.display = "none";
-            }
-            form.addEventListener('submit', submitForm);
-        </script> -->
     </div>
 
     <!-- footer import was here -->
@@ -155,7 +141,5 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>
- 

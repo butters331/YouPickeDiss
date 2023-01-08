@@ -22,7 +22,7 @@
     }
 
     //if not in the db
-    if (!$alreadyStored){
+    if (!$alreadyStored && !empty($email)){
         $storeQuery = "INSERT INTO MailList(email) VALUES ('".$email."')";
         $stmt = mysqli_stmt_init($conn);
 
@@ -34,8 +34,11 @@
             echo '<script>alert("Sign up Successful")</script>';
         }
     }
-    else{
+    else if ($alreadyStored){
         echo '<script>alert("Youve already signed up!")</script>';
+    }
+    else {
+        echo '<script>alert("Enter an email to sign up")</script>';
     }
 
 
