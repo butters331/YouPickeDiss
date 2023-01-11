@@ -4,60 +4,79 @@
         <a href="index.php"><img class="logo" src="Pictures/ypdName.png" alt="YouPickedDiss"></a>
     </div>
     
-    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-dark bg-dark">
         <div class="container">
 
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="products.php?category=0" class="nav-link">
-                            New Releases
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="menDropdown" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Shop
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menDropdown">
-                            <li>
-                                <a href="products.php?category=1" class="dropdown-item">T-Shirts</a>
-                            </li>
-                            <li>
-                                <a href="products.php?category=2" class="dropdown-item">Hoodies</a>
-                            </li>
-                            <li>
-                                <a href="products.php?category=3" class="dropdown-item">Joggers</a>
-                            </li>
-                            <li>
-                                <a href="products.php?category=4" class="dropdown-item">Shorts</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="archieves.php" class="nav-link">
-                            Archives
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link">
-                            About Us
-                        </a>
-                    </li>
-                </ul>
+            <div class="offcanvas offcanvas-start bg-dark justify-content-center" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="navbarNav">
+                <div class="offcanvas-header">
+                    <img id="navbarLogoL" src="Pictures/ypd.png" />
+                    <img id="navbarLogoR" src="Pictures/4tp.png" />
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    <ul>
+                        <li>
+                            <a href="products.php?category=0" class="nav-link text-light" style="font-size: 20px;">
+                                New Releases
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-light" id="menDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="font-size: 20px;">
+                                Shop
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menDropdown" style="position:relative;">
+                                <!-- <li>
+                                    <a href="products.php?category=1" class="dropdown-item text-light" style="font-size: 20px;">T-Shirts</a>
+                                </li> -->
+                                <li>
+                                    <a href="products.php?category=2" class="dropdown-item text-light" style="font-size: 20px;">Hoodies</a>
+                                </li>
+                                <li>
+                                    <a href="products.php?category=3" class="dropdown-item text-light" style="font-size: 20px;">Joggers</a>
+                                </li>
+                                <!-- <li>
+                                    <a href="products.php?category=4" class="dropdown-item text-light" style="font-size: 20px;">Shorts</a>
+                                </li> -->
+                            </ul>
+                        </li>
+                        <div>
+                        <li class="nav-item">
+                            <a href="archieves.php" class="nav-link text-light" style="font-size: 20px;">
+                                Archives
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php" class="nav-link text-light" style="font-size: 20px;">
+                                About Us
+                            </a>
+                        </li>
+                        </div>
+                    </ul>
+                </div>
             </div>
 
-            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" class="navbar-toggler"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="searchBar">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle basket position-relative" href="#" role="button" id="searchDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                   aria-expanded="false">
+                    <i class="bi bi-search"></i>
+                    
+                </a>
+                <div class="searchBar dropdown-menu dropdown-menu-dark" aria-labelledby="searchDropdown" style="padding-left:5px;padding-right:5px;">
+                    <form class="d-flex">
+                        <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+                        <br>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
+            
 
             <div class="dropstart">
                 <a class="btn dropdown-toggle basket position-relative" onclick="populateBasket()" href="#" role="button" id="basketDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"

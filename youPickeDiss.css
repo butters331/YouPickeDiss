@@ -51,6 +51,18 @@ td {
     text-align: center;
 }
 
+#navbarLogoL {
+    display: block;
+    margin-left: auto;
+    height: 50px;
+}
+
+#navbarLogoR {
+    display: block;
+    margin-right: auto;
+    height: 50px;
+}
+
 #productQuantity{
     white-space: pre;
 }
@@ -216,7 +228,6 @@ td {
 
 .searchBar {
     width: fit-content;
-    display: inline-block;
     vertical-align: top;
 }
 
