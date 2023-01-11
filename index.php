@@ -87,6 +87,7 @@
                 <label for="landingSignUp" class="form-label">Join the community for updates</label>
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                <br>
                 <button type="submit" class="btn btn-success">Click diss to sign up</button>
             </form>
         </div>

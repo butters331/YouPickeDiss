@@ -23,7 +23,7 @@
         <iframe name="formSending"></iframe>
         <div class="signUpForm" id="constPageForm">
             <form action="signUpForMailing.php" method="post" target="formSending">
-                <label for="landingSignUp" class="form-label">Join the community for updates</label>
+                <label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 <br>
