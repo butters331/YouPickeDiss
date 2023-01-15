@@ -10,15 +10,15 @@ else{
 }
 populateBasket();
 
-function addToBasket(prodID, name, price, imgPath, quantity){
+function addToBasket(prodID, name, price, imgPath, quantity, size){
     let alreadyIn = false;
     for (let x = 0; x < basket.length; x++){
-        if (basket != null && basket[x][0] == prodID){
+        if (basket != null && basket[x][0] == prodID && basket[x][5] == size){
             alreadyIn = true;
         }
     }
     if (!alreadyIn){
-        basket.push([prodID, name, price, imgPath, quantity]);
+        basket.push([prodID, name, price, imgPath, quantity, size]);
         sessionStorage.setItem('basket', JSON.stringify(basket));
         populateBasket();
     }
@@ -75,13 +75,17 @@ function decrementPreBasket(){
 function getPreBasket(){
     value = document.getElementById('productQuantity');
     if (value != null){
-        console.log(parseInt(document.getElementById('productQuantity').innerHTML));
         return (parseInt(document.getElementById('productQuantity').innerHTML));
     }
     else {
         return (null);
     }
     
+}
+
+function getSize(){
+    let size = document.getElementById('sizeSelector');
+    return size.value;
 }
 
 function populateBasket(){

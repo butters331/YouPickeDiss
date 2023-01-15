@@ -99,9 +99,18 @@
                     ?>
 
                 </div>
+                <br>
+                <div class="selectSize">
+                    <select id="sizeSelector" class="form-select" aria-label="Select size">
+                        <option value="S">Small</option>
+                        <option value="M" selected>Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                    </select>
+                </div>
                 <div class="preAddToBasket">
                     <?php 
-                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket())">Basket Diss</button>';
+                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize())">Basket Diss</button>';
                         mysqli_close($conn);
                     ?>  
                     <br />
