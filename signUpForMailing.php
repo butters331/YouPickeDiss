@@ -23,13 +23,13 @@
 
     //if not in the db
     if (!$alreadyStored && !empty($email)){
-        $storeQuery = "INSERT INTO MailList(email) VALUES ('".$email."')";
+        $storeQuery = "INSERT INTO MailList(email) VALUES (?)";
         $stmt = mysqli_stmt_init($conn);
-
         if(! mysqli_stmt_prepare($stmt, $storeQuery)){
             die(mysqli_error($conn));
         }
         else{
+            mysqli_stmt_bind_param($stmt, "s", $email);
             mysqli_stmt_execute($stmt);
             echo '<script>alert("Sign up Successful")</script>';
         }
