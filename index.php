@@ -119,28 +119,28 @@
                     data-mdb-ripple-color="light">
                         <i class="bi bi-facebook"></i>
                     </a> -->
-
+    
                     <!-- <a class="btn btn-link btn-lg m-1 basket"
                     href="#"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-twitter"></i>
                     </a> -->
-
+    
                     <a class="btn btn-link btn-lg m-1 basket"
                     href="https://www.tiktok.com/@ypd4tp"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-tiktok"></i>
                     </a>
-
+    
                     <a class="btn btn-link btn-lg m-1 basket"
                     href="https://www.instagram.com/ypd4tp/"
                     role="button"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-instagram"></i>
                     </a>
-
+    
                     <a class="btn btn-link btn-lg m-1 basket"
                     href="mailto: info@ypd4tp.co.uk"
                     role="button"
@@ -150,9 +150,17 @@
                 </section>
             </div>
             <div class="text-center" >
+                <a class="btn btn-link m-1 basket"
+                    href="info.html"
+                    role="button"
+                    data-mdb-ripple-color="light">
+                        Sales Information
+                    </a>
+            </div>
+            <div class="text-center" >
                 © Copyright all rights reserved
             </div>
-
+    
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

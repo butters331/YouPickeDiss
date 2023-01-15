@@ -38,12 +38,31 @@ ul {
     margin: 0; /* Remove margins */
 }
 
+#bottomInfo{
+    padding-top: 2em;
+}
+
 #constPageForm{
     text-align: center;
     justify-content: center;
     width: 70%;
     margin-right: auto;
     margin-left: auto;
+}
+
+#infoCentre{
+    width: 33%;
+    padding-left: 1em;
+}
+
+#infoLeft{
+    width: 33%;
+    float: left;
+}
+
+#infoRight{
+    width: 33%;
+    float: right;
 }
 
 #landingSignUp{
@@ -75,6 +94,11 @@ ul {
 #procedeToCheckoutDiv{
     float: right;
     padding-right: 10px;
+}
+
+#topInfo {
+    width: 100%;
+    padding-top: 2em;
 }
 
 #totalLeft {
