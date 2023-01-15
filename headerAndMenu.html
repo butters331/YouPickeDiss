@@ -10,7 +10,6 @@
             <div class="offcanvas offcanvas-start bg-dark justify-content-center" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="navbarNav">
                 <div class="offcanvas-header">
                     <img id="navbarLogoL" src="Pictures/ypd.png" />
-                    <img id="navbarLogoR" src="Pictures/4tp.png" />
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
                 </div>
 
@@ -77,15 +76,18 @@
                 </div>
             </div>
             
+            <button id="basketButton" class="btn basket" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#basketOffcanvas" aria-controls="basketOffcanvas"><i class="bi bi-bag-check-fill"></i></button>
 
-            <div class="dropstart">
-                <a class="btn dropdown-toggle basket position-relative" onclick="populateBasket()" href="#" role="button" id="basketDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                   aria-expanded="false">
-                    <i class="bi bi-bag-check-fill"></i>
-                    
-                </a>
-                <ul id="basketList" class="dropdown-menu dropdown-menu-dark" aria-labelledby="basketDropdown">
-                </ul>
+            <div class="offcanvas offcanvas-end bg-dark justify-content-center" tabindex="-1" id="basketOffcanvas" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header text-light">
+                  <h5 id="offcanvasRightLabel">Basket</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-light">
+                    <ul id="basketList" aria-labelledby="basketOffcanvas">
+                    </ul>
+                </div>
             </div>
+
         </div>
     </nav>

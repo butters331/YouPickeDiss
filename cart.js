@@ -90,7 +90,7 @@ function getSize(){
 
 function populateBasket(){
     var basketList = document.getElementById('basketList');
-    var notifaction = document.getElementById('basketDropdown')
+    var notifaction = document.getElementById('basketButton')
     if (basketList != null){
         if (basket.length == 0){
             basketList.innerHTML = "basket empty";
@@ -106,7 +106,7 @@ function populateBasket(){
                 //total = price * quantity
                 basketTotal += (item[2] * item[4]);
             });
-            basketList.innerHTML += '<li><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping: £4.99</p><p class="basketTotal">Total: £' + Number(basketTotal + 4.99).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
+            basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping: £4.99</p><p class="basketTotal">Total: £' + Number(basketTotal + 4.99).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span class="position-absolute top-20 start-100 translate-middle badge rounded-pill bg-danger">'+ basket.length +'</span>';
         }
     }

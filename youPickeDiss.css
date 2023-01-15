@@ -32,6 +32,12 @@ td {
     padding-bottom: 1em;
 }
 
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+
 #constPageForm{
     text-align: center;
     justify-content: center;
@@ -54,11 +60,6 @@ td {
 #navbarLogoL {
     display: block;
     margin-left: auto;
-    height: 50px;
-}
-
-#navbarLogoR {
-    display: block;
     margin-right: auto;
     height: 50px;
 }
