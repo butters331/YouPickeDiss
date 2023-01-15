@@ -119,15 +119,7 @@
                                 </div>
                                 <div class="productSubtext">'.$row['name'].'<br>£'.$row['price'].'<br>'.$row['Colour']
                             .'  </div>
-                                <div class="productAddToBasket">
-                                    <button type="button" class="btn btn-outline-success" onclick="addToBasket('
-                                                                                                            .$row['prodID'].
-                                                                                                            ', `'.$row['name'].
-                                                                                                            '`, '.$row['price'].
-                                                                                                            ', `'.$prodImgArray[0][0]
-                                                                                                            .'`, 1)">Basket Diss
-                                    </button>
-                                </div>
+                                
                             </td>';
 
                             // <button type="button" class="btn btn-outline-success" onclick="addToBasket(1, [DUMMY] Black Mens Hoodie, 30.99, 1, Pictures/Stock Hoodies/1Back.jpg))">Add To Basket</button>
