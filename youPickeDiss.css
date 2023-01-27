@@ -107,6 +107,7 @@ ul {
 
 .basket {
     color: rgba(255,255,255,.55);
+    border: none;
 }
 
 .basket:hover {

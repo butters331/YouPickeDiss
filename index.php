@@ -14,6 +14,7 @@
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
     <script type="text/javascript" src="cart.js"></script>
+    <script type="text/javascript" src="search.js"></script>
 
     <div class="container pageInfo">
         <div style="overflow:hidden;">

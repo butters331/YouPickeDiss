@@ -17,6 +17,7 @@
     <div w3-include-html="headerAndMenu.html"></div>
     <script src="w3-include-HTML.js"></script>
     <script type="text/javascript" src="cart.js"></script>
+    <script type="text/javascript" src="search.js"></script>
 
     <div class="container" style="height:100%;">
         <table style="width:100%;min-height:450px;">

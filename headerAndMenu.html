@@ -62,26 +62,17 @@
             </div>
 
             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" class="navbar-toggler"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border:none;">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="dropdown">
-                <a class="btn dropdown-toggle basket position-relative" href="#" role="button" id="searchDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                   aria-expanded="false">
+            <div id="initialSearchButton">
+                <a class="btn basket position-relative" href="#" role="button" id="searchDropdown" onclick="replaceSearchButton()">
                     <i class="bi bi-search"></i>
-                    
                 </a>
-                <div class="searchBar dropdown-menu dropdown-menu-dark" aria-labelledby="searchDropdown" style="padding-left:5px;padding-right:5px;">
-                    <form class="d-flex">
-                        <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
-                        <br>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
             </div>
             
-            <a id="basketButton" class="btn basket" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#basketOffcanvas" aria-controls="basketOffcanvas">
+            <a id="basketButton" class="btn basket navbar-toggler" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#basketOffcanvas" aria-controls="basketOffcanvas">
                 <i class="bi bi-bag-check-fill"></i>
             </a>
 
