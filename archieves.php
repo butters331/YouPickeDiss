@@ -61,6 +61,7 @@
 
     
 
+
     <!-- footer import was here -->
     <div class="mt-auto" style="padding-top:1em;">
         
@@ -113,7 +114,7 @@
                     href="info.html"
                     role="button"
                     data-mdb-ripple-color="light">
-                        Sales Information
+                        Read Diss
                     </a>
             </div>
             <div class="text-center" >
