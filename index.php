@@ -12,9 +12,6 @@
 <body class="d-flex flex-column min-vh-100" onload="populateBasket()">
     <!-- code to include header menu-->
     <div w3-include-html="headerAndMenu.html"></div>
-    <script src="w3-include-HTML.js"></script>
-    <script type="text/javascript" src="cart.js"></script>
-    <script type="text/javascript" src="search.js"></script>
 
     <div class="container pageInfo">
         <div style="overflow:hidden;">
@@ -165,7 +162,9 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <script src="w3-include-HTML.js"></script>
+    <script type="text/javascript" src="cart.js"></script>
+    <script type="text/javascript" src="search.js"></script>
 </body>
 </html>
  
