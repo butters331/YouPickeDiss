@@ -14,7 +14,7 @@
 <body class="d-flex flex-column min-vh-100" onload="populateBasket()">
     <?php include_once 'dbConnect.php';?>
     <!-- code to include header menu-->
-    <div w3-include-html="headerAndMenu.html"></div>
+    <?php include_once 'headerAndMenu.php';?>
     <script src="w3-include-HTML.js"></script>
     <script type="text/javascript" src="cart.js"></script>
     <script type="text/javascript" src="search.js"></script>
@@ -196,7 +196,7 @@
             </div>
             <div class="text-center" >
                 <a class="btn btn-link m-1 basket"
-                    href="info.html"
+                    href="info.php"
                     role="button"
                     data-mdb-ripple-color="light">
                          Read Diss
