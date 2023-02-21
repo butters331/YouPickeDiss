@@ -1,4 +1,28 @@
 ﻿
+<?php
+    include_once 'dbConnect.php';
+    require_once('vendor/autoload.php');
+    \Stripe\Stripe::setApiKey('sk_test_51MYzE2IJdJ7IL9xJVx14pBNJSJK9K77iKiylzPui332pQq4quld4POkl93KTgAKshleAj37wosUKWF74oCzjpHuu00cNf9HoOZ');
+
+    $session = \Stripe\Checkout\Session::create([
+    'payment_method_types' => ['card'],
+    'line_items' => [[
+        'price_data' => [
+        'currency' => 'gbp',
+        'product_data' => [
+            'name' => '[DUMMY] Black Mens Hoodie',
+        ],
+        'unit_amount' => 2000,
+        ],
+        'quantity' => 1,
+    ]],
+    'mode' => 'payment',
+    'success_url' => 'http://www.ytp4tp.co.uk/index.php',
+    'cancel_url' => 'http://www.ytp4tp.co.uk/',
+    ]);
+
+    ?>
+
     <!--logo import to top of page-->
     <div>
         <a href="index.php"><img class="logo" src="Pictures/ypdName.png" alt="YouPickedDiss"></a>
@@ -86,6 +110,17 @@
                     </ul>
                 </div>
             </div>
+
+            <script>
+                var stripe = Stripe('pk_test_51MYzE2IJdJ7IL9xJjIuTgaHyLiIwH1A0KyFQ4MApHMj9ViMh0GCnhJHljpwgcfegCxBEouENMXlX7jYbWj81Rnko00uOPMBgJt');
+                const btn = document.getElementById("procedeToCheckoutBtn")
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    stripe.redirectToCheckout({
+                        sessionId: "<?php echo $session->id; ?>"
+                    });
+                });
+            </script>
 
         </div>
     </nav>
