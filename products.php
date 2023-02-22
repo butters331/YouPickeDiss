@@ -24,9 +24,6 @@
 
             <tr style="height:40%;">
                 <?php
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                } 
                 $_SESSION["productID"] = 666;
 
                 $category = $_GET["category"];

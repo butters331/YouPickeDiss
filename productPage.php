@@ -17,9 +17,6 @@
     <script src="w3-include-HTML.js"></script>
     <?php
     include_once 'dbConnect.php';
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    } 
     $_SESSION['productID'] = $_GET['productID'];
     
 
