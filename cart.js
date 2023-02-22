@@ -112,7 +112,7 @@ function populateBasket(){
             const btn = document.getElementById("procedeToCheckoutBtn")
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                var sessionIdRetrieved = (document.getElementById("sessionIdDiv")).textContext;
+                var sessionIdRetrieved = (document.getElementById("sessionIdDiv")).innerText.trim();
                 stripe.redirectToCheckout({
                     sessionId: sessionIdRetrieved
                 });

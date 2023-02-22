@@ -17,15 +17,14 @@
         'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => 'http://www.ytp4tp.co.uk/index.php',
-    'cancel_url' => 'http://www.ytp4tp.co.uk/',
+    'success_url' => 'http://www.ypd4tp.co.uk/index.php',
+    'cancel_url' => 'http://www.ypd4tp.co.uk/',
     ]);
-
     ?>
 
     <div id="sessionIdDiv" style="display: none;">
         <?php
-            echo htmlspecialchars($session->id);
+            echo $session->id;
         ?>
     </div>
 
