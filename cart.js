@@ -108,6 +108,15 @@ function populateBasket(){
             });
             basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping: £4.99</p><p class="basketTotal">Total: £' + Number(basketTotal + 4.99).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basket.length +'</span>';
+            var stripe = Stripe('pk_test_51MYzE2IJdJ7IL9xJjIuTgaHyLiIwH1A0KyFQ4MApHMj9ViMh0GCnhJHljpwgcfegCxBEouENMXlX7jYbWj81Rnko00uOPMBgJt');
+            const btn = document.getElementById("procedeToCheckoutBtn")
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var sessionIdRetrieved = (document.getElementById("sessionIdDiv")).textContext;
+                stripe.redirectToCheckout({
+                    sessionId: sessionIdRetrieved;
+                });
+            });
         }
     }
  
