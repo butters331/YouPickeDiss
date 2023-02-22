@@ -114,7 +114,7 @@ function populateBasket(){
                 e.preventDefault();
                 var sessionIdRetrieved = (document.getElementById("sessionIdDiv")).textContext;
                 stripe.redirectToCheckout({
-                    sessionId: sessionIdRetrieved;
+                    sessionId: sessionIdRetrieved
                 });
             });
         }
