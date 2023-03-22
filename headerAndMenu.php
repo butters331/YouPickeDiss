@@ -1,7 +1,19 @@
-﻿<script src="https://js.stripe.com/v3/"></script>
+﻿<?php session_start();?>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="cart.js"></script>
+
 <?php
     include_once 'dbConnect.php';
     require_once('../vendor/autoload.php');
+    $basketData = json_decode($_SESSION['basket']);
+
+    var_dump($basketData);
+    
+
     \Stripe\Stripe::setApiKey('sk_test_51MYzE2IJdJ7IL9xJVx14pBNJSJK9K77iKiylzPui332pQq4quld4POkl93KTgAKshleAj37wosUKWF74oCzjpHuu00cNf9HoOZ');
 
     $session = \Stripe\Checkout\Session::create([

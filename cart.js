@@ -112,11 +112,39 @@ function populateBasket(){
             const btn = document.getElementById("procedeToCheckoutBtn")
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
+                //get session id from page and add it to checkout session
                 var sessionIdRetrieved = (document.getElementById("sessionIdDiv")).innerText.trim();
                 stripe.redirectToCheckout({
                     sessionId: sessionIdRetrieved
                 });
             });
+
+
+
+            var basketJSON = JSON.stringify(basket);
+            console.log(basketJSON);
+            // var xhr = new XMLHttpRequest();
+            // xhr.open("POST", "https://www.ypd4tp.co.uk/headerAndMenu.php", true);
+            // xhr.setRequestHeader("Content-Type", "application/json");
+            // xhr.send(basketJSON); 
+
+            // $.ajax({
+            //     method: "POST",
+            //     url: "catch.php",
+            //     data: { basket: basketJSON, age: "19" }
+            // }).done(function( msg ) {
+            //     alert(msg);
+            // });
+
+            $.ajax({
+                type: "POST",
+                url: "catch.php",
+                data: {basket:JSON.stringify(basket)},
+                beforeSend: function(xhr){xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")},
+                success: function(res){
+                    console.log(res);
+                }
+            });   
         }
     }
  
