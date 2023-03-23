@@ -14,7 +14,7 @@
     <script type="text/javascript" src="search.js"></script>
     <!-- code to include header menu-->
     <?php include_once 'headerAndMenu.php';?>
-    <script src="w3-include-HTML.js"></script>
+     
     <?php
     include_once 'dbConnect.php';
     $_SESSION['productID'] = $_GET['productID'];

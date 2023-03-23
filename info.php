@@ -13,7 +13,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100" onload="populateBasket()">
     <?php include_once 'headerAndMenu.php';?>
-    <script src="w3-include-HTML.js"></script>
+     
     <script type="text/javascript" src="cart.js"></script>
     <script type="text/javascript" src="search.js"></script>
 
