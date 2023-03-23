@@ -31,7 +31,7 @@
         else{
             mysqli_stmt_bind_param($stmt, "s", $email);
             mysqli_stmt_execute($stmt);
-            echo '<script>alert("Sign up Successful")</script>';
+            echo '<script>alert("Sign up Successful"); location.assign(underConstruction.php)</script>';
         }
     }
     else if ($alreadyStored){

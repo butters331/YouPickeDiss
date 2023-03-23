@@ -108,7 +108,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="message.html" class="nav-link text-light" style="font-size: 20px;">
+                            <a href="message.php" class="nav-link text-light" style="font-size: 20px;">
                                 Our Message
                             </a>
                         </li>
