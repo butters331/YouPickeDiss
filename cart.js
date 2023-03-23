@@ -10,7 +10,7 @@ else{
 }
 populateBasket();
 
-function addToBasket(prodID, name, price, imgPath, quantity, size){
+function addToBasket(prodID, name, price, imgPath, quantity, size, stripeID){
     let alreadyIn = false;
     for (let x = 0; x < basket.length; x++){
         if (basket != null && basket[x][0] == prodID && basket[x][5] == size){
@@ -18,10 +18,12 @@ function addToBasket(prodID, name, price, imgPath, quantity, size){
         }
     }
     if (!alreadyIn){
-        basket.push([prodID, name, price, imgPath, quantity, size]);
+        basket.push([prodID, name, price, imgPath, quantity, size, stripeID]);
         sessionStorage.setItem('basket', JSON.stringify(basket));
         populateBasket();
+        location.reload();
     }
+    
     
 }
 
@@ -33,6 +35,7 @@ function removeFromBasket(prodID){
             populateBasket();
         }
     }
+    location.reload();
 }
 
 function incrementBasket(prodID){
@@ -63,6 +66,7 @@ function incrementPreBasket(){
         value.innerHTML = "  " + (parseInt(value.innerHTML) + 1) + "  ";
     }
     
+    
 }
 
 function decrementPreBasket(){
@@ -80,7 +84,6 @@ function getPreBasket(){
     else {
         return (null);
     }
-    
 }
 
 function getSize(){

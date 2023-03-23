@@ -9,29 +9,44 @@
 <?php
     include_once 'dbConnect.php';
     require_once('../vendor/autoload.php');
-    $basketData = json_decode($_SESSION['basket']);
 
-    var_dump($basketData);
-    
+    $basketData = null;
+    $basket = null;
+
+    $lineItemArray = [];
+
+    if(isset($_SESSION['basket'])){
+        $basketData = json_decode($_SESSION['basket']);
+        $basket = json_decode($basketData->basket);
+        // var_dump($basket);
+        $lineItemArray = [];
+        
+        for ($item = 0; $item < count($basket); $item++){
+            $itemArray = [
+                'price' => $basket[$item][6],
+                'quantity' => $basket[$item][4],
+            ];
+            array_push($lineItemArray, $itemArray);
+        }
+        
+    }
+    else{
+        $lineItemArray = [[
+            'price' => 'price_1MbRdHIJdJ7IL9xJszkDFUAA',
+            'quantity' => 1,
+        ]];
+    }
 
     \Stripe\Stripe::setApiKey('sk_test_51MYzE2IJdJ7IL9xJVx14pBNJSJK9K77iKiylzPui332pQq4quld4POkl93KTgAKshleAj37wosUKWF74oCzjpHuu00cNf9HoOZ');
 
     $session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
-    'line_items' => [[
-        'price_data' => [
-        'currency' => 'gbp',
-        'product_data' => [
-            'name' => '[DUMMY] Black Mens Hoodie',
-        ],
-        'unit_amount' => 2000,
-        ],
-        'quantity' => 1,
-    ]],
+    'line_items' => $lineItemArray,
     'mode' => 'payment',
     'success_url' => 'http://www.ypd4tp.co.uk/index.php',
-    'cancel_url' => 'http://www.ypd4tp.co.uk/',
+    'cancel_url' => 'http://www.ypd4tp.co.uk/index.php',
     ]);
+
     ?>
 
     <div id="sessionIdDiv" style="display: none;">
