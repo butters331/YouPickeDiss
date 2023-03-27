@@ -43,7 +43,7 @@
     'payment_method_types' => ['card'],
     'line_items' => $lineItemArray,
     'mode' => 'payment',
-    'success_url' => 'http://www.ypd4tp.co.uk/index.php',
+    'success_url' => 'http://www.ypd4tp.co.uk/index.php?success=1',
     'cancel_url' => 'http://www.ypd4tp.co.uk/index.php',
     ]);
 
@@ -103,7 +103,8 @@
                         </li>
                         <div>
                         <li class="nav-item">
-                            <a href="archieves.php" class="nav-link text-light" style="font-size: 20px;">
+                            <!-- remove archives link until pushed -->
+                            <a href="" class="nav-link text-light" style="font-size: 20px;">
                                 Archives
                             </a>
                         </li>

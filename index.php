@@ -19,13 +19,17 @@
                 <a href="products.php?category=0" title="Shop"><img class="landingLinkImgs" src="Pictures/ypd.png"></a>
             </div>
             <div style="width:50%;float:right;padding-bottom:30px;">
-                <a href="archieves.php" title="Archieves"><img class="landingLinkImgs" src="Pictures/4tp.png"></a>
+                <a href="" title="Archieves"><img class="landingLinkImgs" src="Pictures/4tp.png"></a>
+                <!-- will have href to archives once that is launched -->
             </div>
         </div>
 
         <!-- connect to db and pull imgs -->
         <?php
             include_once 'dbConnect.php';
+            if(isset($_GET['success'])){
+                echo "<h1>You Bought Diss!</h1>"
+            }
             $getImages = "SELECT * FROM AboutPageImgs";
             $images = mysqli_query($conn, $getImages);
             $noOfImages = mysqli_num_rows($images);
