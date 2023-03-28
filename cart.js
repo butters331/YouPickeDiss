@@ -1,5 +1,7 @@
 //pull basket from local storage
 var basket = sessionStorage.getItem('basket');
+var ukShipping = 5.99;
+var freeOver = 200.00;
 
 //if no basket yet, create an empty one
 if (basket == null){
@@ -36,6 +38,12 @@ function removeFromBasket(prodID){
         }
     }
     location.reload();
+}
+
+function clearBasket(){
+    for (let i = basket.length - 1; i >= 0 ; i--){
+        removeFromBasket(basket[i][0]);
+    }
 }
 
 function incrementBasket(prodID){
@@ -109,7 +117,10 @@ function populateBasket(){
                 //total = price * quantity
                 basketTotal += (item[2] * item[4]);
             });
-            basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping: £4.99</p><p class="basketTotal">Total: £' + Number(basketTotal + 4.99).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
+            if (basketTotal > freeOver){
+                ukShipping = 0.0;
+            }
+            basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping (UK estimate): £'+ ukShipping +'</p><p class="basketTotal">Total: £' + Number(basketTotal + ukShipping).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basket.length +'</span>';
             var stripe = Stripe('pk_test_51MYzE2IJdJ7IL9xJjIuTgaHyLiIwH1A0KyFQ4MApHMj9ViMh0GCnhJHljpwgcfegCxBEouENMXlX7jYbWj81Rnko00uOPMBgJt');
             const btn = document.getElementById("procedeToCheckoutBtn")
@@ -125,7 +136,7 @@ function populateBasket(){
 
 
             var basketJSON = JSON.stringify(basket);
-            console.log(basketJSON);
+            // console.log(basketJSON);
             // var xhr = new XMLHttpRequest();
             // xhr.open("POST", "https://www.ypd4tp.co.uk/headerAndMenu.php", true);
             // xhr.setRequestHeader("Content-Type", "application/json");

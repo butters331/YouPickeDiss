@@ -8,6 +8,7 @@
 
 <?php
     include_once 'dbConnect.php';
+    include_once 'shippingVariables.php';
     require_once('../vendor/autoload.php');
 
     $basketData = null;
@@ -20,13 +21,22 @@
         $basket = json_decode($basketData->basket);
         // var_dump($basket);
         $lineItemArray = [];
+        $totalCostOfBasket = 0.0;
         
         for ($item = 0; $item < count($basket); $item++){
+            // echo $basket[$item][6];
             $itemArray = [
                 'price' => $basket[$item][6],
                 'quantity' => $basket[$item][4],
             ];
             array_push($lineItemArray, $itemArray);
+            $totalCostOfBasket += $basket[$item][2];
+        }
+
+        if ($totalCostOfBasket >= $freeOver){
+            $ukShipping = 0.0;
+            $RoWshipping = 0.0;
+            $EUshipping = 0.0;
         }
         
     }
@@ -41,8 +51,45 @@
 
     $session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
+    'shipping_address_collection' => ['allowed_countries' => $shippingCountries],
+    'shipping_options' => [
+      [
+        'shipping_rate_data' => [
+          'type' => 'fixed_amount',
+          'fixed_amount' => ['amount' => $ukShipping, 'currency' => 'gbp'],
+          'display_name' => 'UK Shipping',
+          'delivery_estimate' => [
+            'minimum' => ['unit' => 'week', 'value' => 4],
+            'maximum' => ['unit' => 'week', 'value' => 6],
+          ],
+        ],
+      ],
+      [
+        'shipping_rate_data' => [
+          'type' => 'fixed_amount',
+          'fixed_amount' => ['amount' => $EUshipping, 'currency' => 'gbp'],
+          'display_name' => 'European Shipping',
+          'delivery_estimate' => [
+            'minimum' => ['unit' => 'week', 'value' => 4],
+            'maximum' => ['unit' => 'week', 'value' => 6],
+          ],
+        ],
+      ],
+      [
+        'shipping_rate_data' => [
+          'type' => 'fixed_amount',
+          'fixed_amount' => ['amount' => $RoWshipping, 'currency' => 'gbp'],
+          'display_name' => 'Rest of the World Shipping',
+          'delivery_estimate' => [
+            'minimum' => ['unit' => 'week', 'value' => 4],
+            'maximum' => ['unit' => 'week', 'value' => 6],
+          ],
+        ],
+      ],
+    ],
     'line_items' => $lineItemArray,
     'mode' => 'payment',
+    'currency' => 'gbp',
     'success_url' => 'http://www.ypd4tp.co.uk/index.php?success=1',
     'cancel_url' => 'http://www.ypd4tp.co.uk/index.php',
     ]);

@@ -28,12 +28,19 @@
         <?php
             include_once 'dbConnect.php';
             if(isset($_GET['success'])){
-                echo "<h1>You Bought Diss!</h1>"
+                echo "<h1 id='boughtDiss' style='text-align:center;color:rgb(0, 175, 80);' onload='clearBasket()'>You Bought Diss!</h1>";
             }
             $getImages = "SELECT * FROM AboutPageImgs";
             $images = mysqli_query($conn, $getImages);
             $noOfImages = mysqli_num_rows($images);
         ?>
+
+        <script>
+            let boughtSuccess = document.getElementById('boughtDiss');
+            if (document.body.contains(boughtSuccess)){
+                clearBasket();
+            }
+        </script>
 
         <!-- Carousel with photos on the front page -->
         <div class="container">
