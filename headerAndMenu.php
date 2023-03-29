@@ -15,6 +15,48 @@
     $basket = null;
 
     $lineItemArray = [];
+    $shippingOptions = 
+    [
+        [
+            'shipping_rate_data' => 
+            [
+                'type' => 'fixed_amount',
+                'fixed_amount' => ['amount' => $ukShipping, 'currency' => 'gbp'],
+                'display_name' => 'UK Shipping',
+                'delivery_estimate' => 
+                [
+                    'minimum' => ['unit' => 'week', 'value' => 4],
+                    'maximum' => ['unit' => 'week', 'value' => 6],
+                ],
+            ],
+        ],
+        [
+            'shipping_rate_data' => 
+            [
+                'type' => 'fixed_amount',
+                'fixed_amount' => ['amount' => $EUshipping, 'currency' => 'gbp'],
+                'display_name' => 'European Shipping',
+                'delivery_estimate' => 
+                [
+                    'minimum' => ['unit' => 'week', 'value' => 4],
+                    'maximum' => ['unit' => 'week', 'value' => 6],
+                ],
+            ],
+            ],
+        [
+            'shipping_rate_data' => 
+            [
+                'type' => 'fixed_amount',
+                'fixed_amount' => ['amount' => $RoWshipping, 'currency' => 'gbp'],
+                'display_name' => 'Rest of the World Shipping',
+                'delivery_estimate' => 
+                [
+                    'minimum' => ['unit' => 'week', 'value' => 4],
+                    'maximum' => ['unit' => 'week', 'value' => 6],
+                ],
+            ],
+        ],
+    ];
 
     if(isset($_SESSION['basket'])){
         $basketData = json_decode($_SESSION['basket']);
@@ -30,13 +72,25 @@
                 'quantity' => $basket[$item][4],
             ];
             array_push($lineItemArray, $itemArray);
-            $totalCostOfBasket += $basket[$item][2];
+            $totalCostOfBasket += ($basket[$item][2] * $basket[$item][4]);
         }
 
         if ($totalCostOfBasket >= $freeOver){
-            $ukShipping = 0.0;
-            $RoWshipping = 0.0;
-            $EUshipping = 0.0;
+            $shippingOptions = [
+                [
+                    'shipping_rate_data' => 
+                    [
+                        'type' => 'fixed_amount',
+                        'fixed_amount' => ['amount' => 0, 'currency' => 'gbp'],
+                        'display_name' => 'Free Shipping',
+                        'delivery_estimate' => 
+                        [
+                            'minimum' => ['unit' => 'week', 'value' => 4],
+                            'maximum' => ['unit' => 'week', 'value' => 6],
+                        ],
+                    ],
+                ]
+            ];
         }
         
     }
@@ -52,41 +106,7 @@
     $session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
     'shipping_address_collection' => ['allowed_countries' => $shippingCountries],
-    'shipping_options' => [
-      [
-        'shipping_rate_data' => [
-          'type' => 'fixed_amount',
-          'fixed_amount' => ['amount' => $ukShipping, 'currency' => 'gbp'],
-          'display_name' => 'UK Shipping',
-          'delivery_estimate' => [
-            'minimum' => ['unit' => 'week', 'value' => 4],
-            'maximum' => ['unit' => 'week', 'value' => 6],
-          ],
-        ],
-      ],
-      [
-        'shipping_rate_data' => [
-          'type' => 'fixed_amount',
-          'fixed_amount' => ['amount' => $EUshipping, 'currency' => 'gbp'],
-          'display_name' => 'European Shipping',
-          'delivery_estimate' => [
-            'minimum' => ['unit' => 'week', 'value' => 4],
-            'maximum' => ['unit' => 'week', 'value' => 6],
-          ],
-        ],
-      ],
-      [
-        'shipping_rate_data' => [
-          'type' => 'fixed_amount',
-          'fixed_amount' => ['amount' => $RoWshipping, 'currency' => 'gbp'],
-          'display_name' => 'Rest of the World Shipping',
-          'delivery_estimate' => [
-            'minimum' => ['unit' => 'week', 'value' => 4],
-            'maximum' => ['unit' => 'week', 'value' => 6],
-          ],
-        ],
-      ],
-    ],
+    'shipping_options' => $shippingOptions,
     'line_items' => $lineItemArray,
     'mode' => 'payment',
     'currency' => 'gbp',
