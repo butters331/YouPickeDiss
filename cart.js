@@ -99,6 +99,38 @@ function getSize(){
     return size.value;
 }
 
+function setCorrectSizeID(size, xs, s, m, l, xl, xxl){
+    switch(size){
+        case 'XS':
+            return String(xs);
+            break;
+
+        case 'S':
+            return String(s);
+            break;
+        
+        case 'M':
+            return String(m);
+            break;
+        
+        case 'L':
+            return String(l);
+            break;
+        
+        case 'XL':
+            return String(xl);
+            break;
+
+        case 'XXL':
+            return String(xxl);
+            break;
+
+        default:
+            return String(m);
+            break;
+    }
+}
+
 function populateBasket(){
     var basketList = document.getElementById('basketList');
     var notifaction = document.getElementById('basketButton')

@@ -102,15 +102,18 @@
                 <br>
                 <div class="selectSize">
                     <select id="sizeSelector" class="form-select" aria-label="Select size">
+                        <option value="XS">X-Small</option>
                         <option value="S">Small</option>
                         <option value="M" selected>Medium</option>
                         <option value="L">Large</option>
                         <option value="XL">X-Large</option>
+                        <option value="XXL">XX-Large</option>
                     </select>
                 </div>
                 <div class="preAddToBasket">
                     <?php 
-                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), `'.$productInfoArray['stripeID'].'`)">Basket Diss</button>';
+                    //need gto do something here to check size with php - reckon send all to JS as below, then have a function deal with a switch.
+                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
                         mysqli_close($conn);
                     ?>  
                     <br />
