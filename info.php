@@ -56,7 +56,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <img src="Pictures/dummysizechart.jpg" class="d-block w-100" alt="..." />
+                                <img src="Pictures/sizechart.jpg" class="d-block w-100" alt="..." />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>

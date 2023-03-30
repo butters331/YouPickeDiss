@@ -24,6 +24,11 @@
             </div>
         </div>
 
+        <!-- buy diss button to take to new releases page, as like pressing ypd -->
+        <div id="homepageShopBtnDiv">
+            <a id="homepageShopBtn" role="button" href="products.php?category=0" class="btn btn-success">Buy Diss</a>
+        </div>
+
         <!-- connect to db and pull imgs -->
         <?php
             include_once 'dbConnect.php';
