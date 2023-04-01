@@ -22,7 +22,7 @@
 
     $prodID = $_SESSION['productID'];
     $productInfoSQL = 'SELECT * FROM Products WHERE prodID='.$prodID;
-    $productImgsSQL = 'SELECT Path From ProductImgs Where prodID='.$prodID;
+    $productImgsSQL = 'SELECT Path From ProductImgs Where prodID='.$prodID.' ORDER BY Priority ASC';
     $productInfo = mysqli_query($conn, $productInfoSQL);
     $productImgs = mysqli_query($conn, $productImgsSQL);
     $noOfImgs = mysqli_num_rows($productImgs);

@@ -73,7 +73,7 @@
                 while ($productCount !== $noOfProducts){
                     if ($row = mysqli_fetch_assoc($products)){
                         $productId = $row['prodID'];
-                        $imgSQL = "SELECT Path FROM ProductImgs WHERE prodID=".$productId.";";
+                        $imgSQL = "SELECT Path FROM ProductImgs WHERE prodID=".$productId." ORDER BY Priority ASC;";
                         $prodImgs = mysqli_query($conn, $imgSQL);
                         $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_rows($prodImgs);
