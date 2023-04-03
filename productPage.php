@@ -86,13 +86,6 @@
                         </button>
                     </div>
                 </div>
-                <h1 class="pageFormat"><?php echo $productInfoArray['name'];?></h1>
-            <p class="pageFormat">
-                <?php echo $productInfoArray['description'];?>
-                <br />
-                <br />
-            </p>
-            <h4><?php echo '£'.$productInfoArray['price'].'<br>'.$productInfoArray['Colour'];?></h4>
                 <div class="quantityButton">
                     <?php 
                         echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementPreBasket()">+</button>';
@@ -113,12 +106,21 @@
                 <div class="preAddToBasket">
                     <?php 
                     //need gto do something here to check size with php - reckon send all to JS as below, then have a function deal with a switch.
-                        echo '<button type="button" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                        echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
                         mysqli_close($conn);
                     ?>  
                     <br />
                     <br />
                 </div>
+
+                <h1 class="pageFormat"><?php echo $productInfoArray['name'].' - '.$productInfoArray['Colour'];?></h1>
+                <h4><?php echo '£'.$productInfoArray['price'].'<br>';?></h4>
+            <p class="pageFormat">
+                <?php echo $productInfoArray['description'];?>
+                <!-- <br />
+                <br /> -->
+                
+            </p>
 
             </div>
         </div>

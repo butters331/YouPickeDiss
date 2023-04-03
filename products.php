@@ -117,7 +117,7 @@
                             echo '      </div>
                                     </div>
                                 </div>
-                                <div class="productSubtext">'.$row['name'].'<br>£'.$row['price'].'<br>'.$row['Colour']
+                                <div class="productSubtext">'.$row['name'].' - '.$row['Colour'].'<br>£'.$row['price']
                             .'  </div>
                                 
                             </td>';
@@ -151,10 +151,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-
-
-
-

@@ -124,7 +124,7 @@
 
     <!--logo import to top of page-->
     <div>
-        <a href="index.php"><img class="logo" src="Pictures/ypdName.png" alt="YouPickedDiss"></a>
+        <a href="index.php"><img class="logo" src="Pictures/ypd.png" alt="YouPickedDiss"></a>
     </div>
     
     <nav class="navbar sticky-top navbar-dark bg-dark">

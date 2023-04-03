@@ -14,20 +14,15 @@
     <?php include_once 'headerAndMenu.php';?>
 
     <div class="container pageInfo">
-        <div style="overflow:hidden;">
+        <!-- <div style="overflow:hidden;">
             <div style="width:50%;float:left;padding-bottom:30px;">
                 <a href="products.php?category=0" title="Shop"><img class="landingLinkImgs" src="Pictures/ypd.png"></a>
             </div>
             <div style="width:50%;float:right;padding-bottom:30px;">
                 <a href="" title="Archieves"><img class="landingLinkImgs" src="Pictures/4tp.png"></a>
-                <!-- will have href to archives once that is launched -->
+                
             </div>
-        </div>
-
-        <!-- buy diss button to take to new releases page, as like pressing ypd -->
-        <div id="homepageShopBtnDiv">
-            <a id="homepageShopBtn" role="button" href="products.php?category=0" class="btn btn-success">Buy Diss</a>
-        </div>
+        </div> -->
 
         <!-- connect to db and pull imgs -->
         <?php
@@ -94,6 +89,11 @@
             </div>
         </div>
 
+        <!-- buy diss button to take to new releases page, as like pressing ypd -->
+        <div id="homepageShopBtnDiv">
+            <a id="homepageShopBtn" role="button" href="products.php?category=0" class="btn btn-success">Buy Diss</a>
+        </div>
+
         <!-- sign up to mailing list form -->
         <iframe name="formSending"></iframe>
         <div class="signUpForm">
@@ -124,4 +124,3 @@
     <script type="text/javascript" src="search.js"></script>
 </body>
 </html>
- 

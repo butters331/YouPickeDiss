@@ -69,14 +69,14 @@ ul {
     display: flex;
     align-items: center;
     text-align: center;
-    padding-bottom: 2em;
+    padding-top: 2em;
 }
 
 #homepageShopBtn{
     margin-left: auto; 
     margin-right: auto;
     width: 20%;
-    font-size: larger;
+    font-size: xx-large;
 }
 
 #landingSignUp{
@@ -95,6 +95,10 @@ ul {
     margin-left: auto;
     margin-right: auto;
     height: 50px;
+}
+
+#productBasketDiss{
+    font-size: large;
 }
 
 #productQuantity{
@@ -204,7 +208,7 @@ ul {
 
 .logo {
     display: block;
-    width: 30%;
+    width: 10%;
     /* height: 30%; */
     margin-left: auto;
     margin-right: auto;
@@ -236,6 +240,7 @@ ul {
 .productLargeImg {
     width:200px;
     height:400px;
+    padding-bottom: 1em;
 }
 
 .productSubtext{
@@ -284,6 +289,10 @@ ul {
     /* .productContainer{
         height:100px;
     } */
+    #homepageShopBtn{
+        width: 40%;
+        font-size: x-large;
+    }
     .productSubtext {
         font-size: 10px;
     }
@@ -294,7 +303,7 @@ ul {
     }
 
     .logo{
-        width: 50%;
+        width: 30%;
     }
 
     .productThumbnailImage{
