@@ -22,7 +22,7 @@
     <div class="container" style="height:100%;">
         <table style="width:100%;min-height:450px;">
 
-            <tr style="height:40%;">
+            <tr style="height:70%;">
                 <?php
                 $_SESSION["productID"] = 666;
 
@@ -77,45 +77,20 @@
                         $prodImgs = mysqli_query($conn, $imgSQL);
                         $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_rows($prodImgs);
-                        $imgCounter = 0;
                         if ($noOfImgs != 0){
-                            echo '<td style="width:33%;">
-                                <div class="container productContainer">
-                                    <div id="product'.$productCount.'" class="carousel carousel-dark slide productThumbnail" data-bs-ride="carousel" style="width:100%;">
-                                        <div class="carousel-indicators">';
-                            
-                            for ($y=0; $y < $noOfImgs; $y++){
-                                if ($y == 0){
-                                    echo '  <button type="button" data-bs-target="#product'.$productCount.'" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
-                                }
-                                else{
-                                    echo '  <button type="button" data-bs-target="#product'.$productCount.'" data-bs-slide-to="'.$y.'" aria-label="Slide '.($y+1).'"></button>';
-                                }
-                            }
-                            echo '      </div>
-                                        <div class="carousel-inner">';
-                            while ($imgCounter != $noOfImgs){
-                                $imgPath = "".$prodImgArray[$imgCounter][0];
-                                if ($imgCounter == 0){
-                                    echo '  <div class="carousel-item active">
-                                                <a href="productPage.php?productID='.$productId.'">
-                                                    <img src="';
-                                }//if first img
-                                else {
-                                    echo '  <div class="carousel-item">
-                                                <a href="productPage.php?productID='.$productId.'">
-                                                    <img src="';
-                                }
-                                echo ''.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="...">
-                                                </a>
-                                            </div>';
-                                $imgCounter++;
-                            }//while imgs to paste in carousel
+                            $imgPath = $prodImgArray[0][0];
+                            echo '<td style="width:100%;">
+                                <div class="container productContainer">';
+        
+                                    echo '
+                                    <a href="productPage.php?productID='.$productId.'">
+                                        <img src="'.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="...">
+                                    </a>';
+                                
 
                             
 
-                            echo '      </div>
-                                    </div>
+                            echo '      
                                 </div>
                                 <div class="productSubtext">'.$row['name'].' - '.$row['Colour'].'<br>£'.$row['price']
                             .'  </div>
@@ -124,13 +99,8 @@
 
                             // <button type="button" class="btn btn-outline-success" onclick="addToBasket(1, [DUMMY] Black Mens Hoodie, 30.99, 1, Pictures/Stock Hoodies/1Back.jpg))">Add To Basket</button>
 
-
-                            $productCount++;
-                            if ($productCount % 3 == 0){
-                                echo '
-                        </tr>
-                        <tr style="height:40%;">';
-                            }
+                                echo '</tr><tr style="height:70%;">';
+                                $productCount++;
 
                         }//if
                     }//if

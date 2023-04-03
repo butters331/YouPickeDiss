@@ -169,12 +169,11 @@
                             </ul>
                         </li>
                         <div>
-                        <li class="nav-item">
-                            <!-- remove archives link until pushed -->
-                            <a href="" class="nav-link text-light" style="font-size: 20px;">
+                        <!-- <li class="nav-item">
+                            <a href="archieves.php" class="nav-link text-light" style="font-size: 20px;">
                                 Archives
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="message.php" class="nav-link text-light" style="font-size: 20px;">
                                 Our Message

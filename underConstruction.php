@@ -17,7 +17,7 @@
     </div>
     <div class="pageLayout">
         <h1 id="loading">
-            LOADING...
+            Store Live April 9th
         </h1>
         <!-- sign up to mailing list form -->
         <iframe name="formSending"></iframe>

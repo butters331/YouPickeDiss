@@ -245,7 +245,7 @@ ul {
 
 .productSubtext{
     text-align:center;
-    font-size:12px;
+    font-size:16px;
 }
 
 .productThumbnail {
@@ -255,8 +255,9 @@ ul {
 }
 
 .productThumbnailImage {
-    max-height: 200px;
+    width: 100%;
     padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 .productBasketImage{
@@ -293,9 +294,6 @@ ul {
         width: 40%;
         font-size: x-large;
     }
-    .productSubtext {
-        font-size: 10px;
-    }
     .productThumbnail {
         /* width: 60px;
         height: 100px; */
@@ -306,9 +304,9 @@ ul {
         width: 30%;
     }
 
-    .productThumbnailImage{
-        height: 160px;
-    }
+    /* .productThumbnailImage{
+        max-height: 400px;
+    } */
 }
 
 @media screen and (max-width: 700px) {
@@ -318,10 +316,6 @@ ul {
     /* .productContainer {
         height: 80px;
     } */
-
-    .productSubtext {
-        font-size: 8px;
-    }
 
     .productLargeImg{
         height: 350px;
