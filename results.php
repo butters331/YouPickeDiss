@@ -83,10 +83,6 @@
                                     <a href="productPage.php?productID='.$productId.'">
                                         <img src="'.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="...">
                                     </a>';
-                                
-
-                            
-
                             echo '      
                                 </div>
                                 <div class="productSubtext">'.$row['name'].' - '.$row['Colour'].'<br>£'.$row['price']
@@ -101,6 +97,7 @@
 
                         }//if
                     }//if
+                }//while
 
                 mysqli_close($conn);
                 ?>

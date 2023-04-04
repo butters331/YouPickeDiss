@@ -195,14 +195,14 @@
                 </a>
             </div>
             
-            <a id="basketButton" class="btn basket navbar-toggler" type="button" href="#" data-bs-toggle="offcanvas" data-bs-target="#basketOffcanvas" aria-controls="basketOffcanvas">
+            <a id="basketButton" class="btn basket navbar-toggler" type="button" href="#" onclick="toggleHidden()" data-bs-toggle="offcanvas" data-bs-target="#basketOffcanvas" aria-controls="basketOffcanvas">
                 <i class="bi bi-bag-check-fill"></i>
             </a>
 
             <div class="offcanvas offcanvas-end bg-dark justify-content-center" tabindex="-1" id="basketOffcanvas" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header text-light">
                   <h5 id="offcanvasRightLabel">Basket</h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" onclick="setHidden()" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body text-light">
                     <ul id="basketList" aria-labelledby="basketOffcanvas">
@@ -210,6 +210,29 @@
                 </div>
             </div>
 
+            <div style="display:none"></div>
+
         </div>
     </nav>
+
+    <script>
+        window.onload = function(){
+            populateBasket();
+            const offCanvas = new bootstrap.Offcanvas(document.getElementById("basketOffcanvas"));
+            if (localStorage.getItem("hidden") === null){
+                localStorage.setItem("hidden", "true");
+            }
+            else {
+                if (localStorage.getItem("hidden") === "true"){
+                    offCanvas.hide();
+                    console.log("hide")
+                }
+                else {
+                    offCanvas.show();
+                    console.log("show")
+                }
+            }
+        }
+        
+    </script>
     

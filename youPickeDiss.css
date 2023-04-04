@@ -38,6 +38,10 @@ ul {
     margin: 0; /* Remove margins */
 }
 
+#basketOffcanvas{
+    display: flex !important;
+}
+
 #bottomInfo{
     padding-top: 2em;
 }

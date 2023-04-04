@@ -12,6 +12,19 @@ else{
 }
 populateBasket();
 
+function setHidden(){
+    localStorage.setItem("hidden", "true");
+}
+
+function toggleHidden(){
+    if (localStorage.getItem("hidden") === "true"){
+        localStorage.setItem("hidden", "false");
+    }
+    else {
+        localStorage.setItem("hidden", "true");
+    }
+}
+
 function addToBasket(prodID, name, price, imgPath, quantity, size, stripeID){
     let alreadyIn = false;
     for (let x = 0; x < basket.length; x++){
@@ -37,6 +50,7 @@ function removeFromBasket(prodID){
             populateBasket();
         }
     }
+    localStorage.setItem("hidden", "false");
     location.reload();
 }
 
@@ -53,7 +67,9 @@ function incrementBasket(prodID){
         }
     }
     sessionStorage.setItem('basket', JSON.stringify(basket));
+    localStorage.setItem("hidden", "false");
     populateBasket();
+    location.reload();
 }
 
 function decrementBasket(prodID){
@@ -65,7 +81,9 @@ function decrementBasket(prodID){
         }
     }
     sessionStorage.setItem('basket', JSON.stringify(basket));
+    localStorage.setItem("hidden", "false");
     populateBasket();
+    location.reload();
 }
 
 function incrementPreBasket(){
@@ -73,8 +91,6 @@ function incrementPreBasket(){
     if (value != null){
         value.innerHTML = "  " + (parseInt(value.innerHTML) + 1) + "  ";
     }
-    
-    
 }
 
 function decrementPreBasket(){
@@ -144,16 +160,18 @@ function populateBasket(){
                 basketList.innerHTML = "";
             }
             let basketTotal = 0;
+            let basketNotificationQuantity = 0;
             basket.forEach(item => {
                 basketList.innerHTML += '<li><div class="basketItem"> <div class="basketItemContents"><img class="productBasketImage" src="'+ item[3] + '"></div><div class="basketItemText">'+ item[5] +' - ' + item[1] +'</div><div class="basketItemPrice">£'+ item[2] +'</div> <div class="basketItemQuantityBtn">  <button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementBasket(' + item[0] + ')">-</button>   ' + item[4] + '    <button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementBasket(' + item[0] + ')">+</button></div><div class="basketItemRemoveBtn"><button type="button" class="btn btn-outline-danger btn-xs" onclick="removeFromBasket(' + item[0] + ')">Remove</button></div></div></li><li><hr class="dropdown-divider"></li>';
                 //total = price * quantity
                 basketTotal += (item[2] * item[4]);
+                basketNotificationQuantity += item[4];
             });
             if (basketTotal > freeOver){
                 ukShipping = 0.0;
             }
             basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping (UK estimate): £'+ ukShipping +'</p><p class="basketTotal">Total: £' + Number(basketTotal + ukShipping).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
-            notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basket.length +'</span>';
+            notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basketNotificationQuantity +'</span>';
             var stripe = Stripe('pk_test_51MYzE2IJdJ7IL9xJjIuTgaHyLiIwH1A0KyFQ4MApHMj9ViMh0GCnhJHljpwgcfegCxBEouENMXlX7jYbWj81Rnko00uOPMBgJt');
             const btn = document.getElementById("procedeToCheckoutBtn")
             btn.addEventListener('click', function(e) {
