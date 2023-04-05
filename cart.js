@@ -36,7 +36,7 @@ function addToBasket(prodID, name, price, imgPath, quantity, size, stripeID){
         basket.push([prodID, name, price, imgPath, quantity, size, stripeID]);
         sessionStorage.setItem('basket', JSON.stringify(basket));
         populateBasket();
-        location.reload();
+        // location.reload();
     }
     
     
