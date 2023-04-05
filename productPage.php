@@ -86,9 +86,18 @@
                         </button>
                     </div>
                 </div>
+                <div class="preAddToBasket">
+                    <?php 
+                    //need gto do something here to check size with php - reckon send all to JS as below, then have a function deal with a switch.
+                        echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                    ?>  
+                    <br />
+                    <br />
+                </div>
                 <div class="quantityButton">
                     <?php 
                         echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementPreBasket()">+</button>';
+                        mysqli_close($conn);
                     ?>
 
                 </div>
@@ -103,24 +112,36 @@
                         <option value="XXL">XX-Large</option>
                     </select>
                 </div>
-                <div class="preAddToBasket">
-                    <?php 
-                    //need gto do something here to check size with php - reckon send all to JS as below, then have a function deal with a switch.
-                        echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
-                        mysqli_close($conn);
-                    ?>  
-                    <br />
-                    <br />
-                </div>
+                <br>
+        
 
                 <h1 class="pageFormat"><?php echo $productInfoArray['name'].' - '.$productInfoArray['Colour'];?></h1>
                 <h4><?php echo '£'.$productInfoArray['price'].'<br>';?></h4>
-            <p class="pageFormat">
-                <?php echo $productInfoArray['description'];?>
-                <!-- <br />
-                <br /> -->
-                
-            </p>
+                <p class="pageFormat">
+                    <?php echo $productInfoArray['description'];?>
+                    <!-- <br />
+                    <br /> -->
+                    
+                </p>
+
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#sizingModalPP">
+                    Size Chart
+                </button>
+                <div class="modal fade" id="sizingModalPP" tabindex="-1" aria-labelledby="" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="Pictures/sizechart.jpg" class="d-block w-100" alt="..." />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

@@ -78,14 +78,54 @@
                         $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_rows($prodImgs);
                         if ($noOfImgs != 0){
-                            $imgPath = $prodImgArray[0][0];
+                            
                             echo '<td style="width:100%;">
-                                <div class="container productContainer">';
-        
-                                    echo '
+                                <div class="container">
+                                    <div id="product'.$productId.'Indicators" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators">';
+
+                            for ($index = 0; $index < $noOfImgs; $index++){
+                                if ($index == 0){
+                                    echo '<button type="button" data-bs-target="#product'.$productId.'Indicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                                }
+                                else {
+                                    echo '<button type="button" data-bs-target="#product'.$productId.'Indicators" data-bs-slide-to="'.$index.'" aria-label="Slide '.($index+1).'"></button>';
+                                }
+                                
+                            }
+
+                            echo '</div>
+                            <div class="carousel-inner">';
+
+                            for ($index = 0; $index < $noOfImgs; $index++){
+                                $imgPath = $prodImgArray[$index][0];
+                                if ($index == 0){
+                                    echo '<div class="carousel-item active">';
+                                }
+                                else {
+                                    echo '<div class="carousel-item">';
+                                }
+
+                                echo '
                                     <a href="productPage.php?productID='.$productId.'">
                                         <img src="'.$imgPath.'" class="d-block w-100 productThumbnailImage" alt="...">
-                                    </a>';
+                                    </a>
+                                    </div>';
+
+                            }
+                            echo '</div>';
+
+                            echo '<button class="carousel-control-prev" type="button" data-bs-target="#product'.$productId.'Indicators" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#product'.$productId.'Indicators" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>';
+        
+                                    
                                 
 
                             
