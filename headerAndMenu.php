@@ -5,6 +5,26 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript" src="cart.js"></script>
+<script>
+    window.onload = function(){
+        populateBasket();
+        const offCanvas = new bootstrap.Offcanvas(document.getElementById("basketOffcanvas"));
+        if (localStorage.getItem("hidden") === null){
+            localStorage.setItem("hidden", "true");
+        }
+        else {
+            if (localStorage.getItem("hidden") === "true"){
+                offCanvas.hide();
+                console.log("hide")
+            }
+            else {
+                offCanvas.show();
+                console.log("show")
+            }
+        }
+    }
+    
+</script>
 
 <?php
     include_once 'dbConnect.php';
@@ -130,7 +150,7 @@
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <div class="container">
 
-            <div class="offcanvas offcanvas-start bg-dark justify-content-center" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="navbarNav">
+            <div class="offcanvas offcanvas-start bg-dark justify-content-center" data-bs-scroll="true" tabindex="-1" id="navbarNav" data-bs-backdrop="false">
                 <div class="offcanvas-header">
                     <img id="navbarLogoL" src="Pictures/ypd.png" />
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
@@ -199,7 +219,7 @@
                 <i class="bi bi-bag-check-fill"></i>
             </a>
 
-            <div class="offcanvas offcanvas-end bg-dark justify-content-center" tabindex="-1" id="basketOffcanvas" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas offcanvas-end bg-dark justify-content-center" data-bs-backdrop="static" tabindex="-1" id="basketOffcanvas" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header text-light">
                   <h5 id="offcanvasRightLabel">Basket</h5>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" onclick="setHidden()" aria-label="Close"></button>
@@ -209,30 +229,5 @@
                     </ul>
                 </div>
             </div>
-
-            <div style="display:none"></div>
-
         </div>
-    </nav>
-
-    <script>
-        window.onload = function(){
-            populateBasket();
-            const offCanvas = new bootstrap.Offcanvas(document.getElementById("basketOffcanvas"));
-            if (localStorage.getItem("hidden") === null){
-                localStorage.setItem("hidden", "true");
-            }
-            else {
-                if (localStorage.getItem("hidden") === "true"){
-                    offCanvas.hide();
-                    console.log("hide")
-                }
-                else {
-                    offCanvas.show();
-                    console.log("show")
-                }
-            }
-        }
-        
-    </script>
-    
+    </nav>    
