@@ -60,8 +60,11 @@
                 echo '
                 <div class="carousel-inner">';
 
+                $firstImg = " ";
                 for($count = 0; $count < $noOfImgs; $count++){
+                    $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
                     if ($count == 0){
+                        $firstImg = $productImgsArray[0];
                         echo '
                     <div class="carousel-item active">';
                     }
@@ -69,7 +72,7 @@
                         echo '
                         <div class="carousel-item">';
                     }
-                    $productImgsArray = mysqli_fetch_array($productImgs,MYSQLI_NUM);
+                    
                     echo '  <img src="'.$productImgsArray[0].'" class="d-block w-100 productLargeImg" alt="...">';
                     echo '
                         </div>';
@@ -91,7 +94,7 @@
                 <div class="preAddToBasket">
                     <?php 
                     //need gto do something here to check size with php - reckon send all to JS as below, then have a function deal with a switch.
-                        echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$productImgsArray[0].'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                        echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
                     ?>  
                     <br />
                     <br />
