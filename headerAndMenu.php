@@ -121,7 +121,7 @@
         ]];
     }
 
-    \Stripe\Stripe::setApiKey('sk_test_51MYzE2IJdJ7IL9xJVx14pBNJSJK9K77iKiylzPui332pQq4quld4POkl93KTgAKshleAj37wosUKWF74oCzjpHuu00cNf9HoOZ');
+    \Stripe\Stripe::setApiKey($stripeKey);
 
     $session = \Stripe\Checkout\Session::create([
     'payment_method_types' => ['card'],
