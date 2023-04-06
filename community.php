@@ -45,7 +45,7 @@
                                 <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="..." />
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ function addToBasket(prodID, name, price, imgPath, quantity, size, stripeID){
         basket.push([prodID, name, price, imgPath, quantity, size, stripeID]);
         sessionStorage.setItem('basket', JSON.stringify(basket));
         populateBasket();
-        // location.reload();
+        location.reload();
     }
     
     
@@ -172,7 +172,7 @@ function populateBasket(){
             }
             basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping (UK estimate): £'+ ukShipping +'</p><p class="basketTotal">Total: £' + Number(basketTotal + ukShipping).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basketNotificationQuantity +'</span>';
-            var stripe = Stripe('pk_test_51MYzE2IJdJ7IL9xJjIuTgaHyLiIwH1A0KyFQ4MApHMj9ViMh0GCnhJHljpwgcfegCxBEouENMXlX7jYbWj81Rnko00uOPMBgJt');
+            var stripe = Stripe('pk_live_51MYzE2IJdJ7IL9xJoMYTXhga0vugaKk4CjjRFzC48CFTOS7yBmLyqrAhMXmM30KZeHWrbqzuJpBRJo2GVV5xtpIs00yIAwzH7s');
             const btn = document.getElementById("procedeToCheckoutBtn")
             btn.addEventListener('click', function(e) {
                 e.preventDefault();

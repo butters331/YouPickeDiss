@@ -116,7 +116,7 @@
     }
     else{
         $lineItemArray = [[
-            'price' => 'price_1MrK8QIJdJ7IL9xJyAjpFQvv',
+            'price' => 'price_1Mtpi3IJdJ7IL9xJDy8SoaYI',
             'quantity' => 1,
         ]];
     }
