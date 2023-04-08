@@ -173,7 +173,7 @@ function populateBasket(){
             }
             basketList.innerHTML += '<li style="align-self: flex-end;"><div id="totalLeft"><p class="basketTotal">Sub-Total: £' + Number(basketTotal).toFixed(2) + '</p><p class="basketTotal">Shipping (UK estimate): £'+ ukShipping +'</p><p class="basketTotal">Total: £' + Number(basketTotal + ukShipping).toFixed(2) + '</p></div><div id="procedeToCheckoutDiv"><button id="procedeToCheckoutBtn" type="button" class="btn btn-outline-success"> Buy Diss </button></div></li>';
             notifaction.innerHTML = '<i class="bi bi-bag-check-fill"></i><span style="top:6px!important;" class="position-absolute translate-middle badge rounded-pill bg-danger">'+ basketNotificationQuantity +'</span>';
-            var stripe = Stripe('pk_live_51MYzE2IJdJ7IL9xJoMYTXhga0vugaKk4CjjRFzC48CFTOS7yBmLyqrAhMXmM30KZeHWrbqzuJpBRJo2GVV5xtpIs00yIAwzH7s');
+            var stripe = Stripe('pk_live_51MYzE2IJdJ7IL9xJdiZ9JDuxn62fkzYnCDN78aJhX89FgzW5HV16r89HM6K926latmIHnMkHMDPH5TyjoYm6qNTZ004piMo38c');
             const btn = document.getElementById("procedeToCheckoutBtn")
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
