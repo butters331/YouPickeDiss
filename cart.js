@@ -26,6 +26,7 @@ function toggleHidden(){
 }
 
 function addToBasket(prodID, name, price, imgPath, quantity, size, stripeID){
+    fbq('track', 'AddToCart');
     let alreadyIn = false;
     for (let x = 0; x < basket.length; x++){
         if (basket != null && basket[x][0] == prodID && basket[x][5] == size){

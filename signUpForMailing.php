@@ -23,6 +23,7 @@
 
     //if not in the db
     if (!$alreadyStored && !empty($email)){
+        echo "script>fbq('track', 'CompleteRegistration'); </script>";
         $storeQuery = "INSERT INTO MailList(email) VALUES (?)";
         $stmt = mysqli_stmt_init($conn);
         if(! mysqli_stmt_prepare($stmt, $storeQuery)){
