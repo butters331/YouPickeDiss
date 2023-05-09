@@ -152,12 +152,13 @@
                         <i class="bi bi-facebook"></i>
                     </a> -->
 
-                    <!-- <a class="btn btn-link btn-lg m-1 basket"
-                    href="#"
+                    <a class="btn btn-link btn-lg m-1 basket"
+                    href="https://twitter.com/YPD4TP"
                     role="button"
+                    target="_blank"
                     data-mdb-ripple-color="light">
                         <i class="bi bi-twitter"></i>
-                    </a> -->
+                    </a>
 
                     <a class="btn btn-link btn-lg m-1 basket"
                     href="https://www.tiktok.com/@ypd4tp"
