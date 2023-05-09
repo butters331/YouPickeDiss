@@ -34,22 +34,47 @@
 </head>
 
 <body>
+    <?php 
+        session_start();
+        //first check that user hasn't already logged in
+        if (!isset($_SESSION['loggedIn'])){
+            $_SESSION['loggedIn'] = 0;
+        }
+        //if logged in go to correct page
+        else if ($_SESSION['loggedIn'] === 1) {
+            header('Location: index.php');
+        }
+    ?>
     <div>
-        <img src="Pictures/ypdName.png" alt="YouPickeDiss" style=" display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+        <div id="topRightEnterPass">
+            <!-- enter password form -->
+            <iframe name="passSending"></iframe>
+            <div class="signUpForm" id="passPageForm">
+                <form action="enterPassword.php" method="post" target="passSending">
+                    <div style="display:table-cell;"><input name="password" type="password" class="form-control" id="passwordEnter" placeholder="4 access" aria-describedby="passHelp"></div>
+                    <div style="display:table-cell; padding:2px;"><button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;">Enter</button></div>
+                </form>
+            </div>
+        </div>
+        <div style="width:20%; float:right;">
+            <img src="Pictures/ypd.png" alt="YouPickedDiss" class="logoLanding">
+        </div>
+        
+        
     </div>
     <div class="pageLayout">
         <h1 id="loading">
-            Store Live April 9th
+            Sign Up 4 early access!
         </h1>
         <!-- sign up to mailing list form -->
         <iframe name="formSending"></iframe>
         <div class="signUpForm" id="constPageForm">
             <form action="signUpForMailing.php" method="post" target="formSending">
-                <label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>
+                <!--<label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>-->
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 <br>
-                <button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;" onclick="location.reload()">Click diss to sign up</button>
+                <button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;">Click diss to sign up</button>
             </form>
         </div>
 

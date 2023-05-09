@@ -101,6 +101,10 @@ ul {
     height: 50px;
 }
 
+#passPageForm {
+    display: table;
+}
+
 #productBasketDiss{
     font-size: large;
 }
@@ -121,6 +125,13 @@ ul {
 #topInfo {
     width: 100%;
     padding-top: 2em;
+}
+
+#topRightEnterPass {
+    display: flex;
+    float: right;
+    width: 40%;
+    justify-content: right;
 }
 
 #totalLeft {
@@ -213,6 +224,15 @@ ul {
 .logo {
     display: block;
     width: 10%;
+    /* height: 30%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+}
+
+.logoLanding {
+    display: block;
+    width: 50%;
     /* height: 30%; */
     margin-left: auto;
     margin-right: auto;
