@@ -98,6 +98,10 @@
                         $prodImgs = mysqli_query($conn, $imgSQL);
                         $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_rows($prodImgs);
+                        $soldOut = '';
+                        if ($row['inStock'] == 0){
+                            $soldOut = '<br><span style="color:rgba(0,175,80,255);font-size:22px;">Sold Out</span>';
+                        }
                         if ($noOfImgs != 0){
                             
                             echo '<td style="width:100%;">
@@ -148,7 +152,7 @@
 
                             echo '      
                                 </div>
-                                <div class="productSubtext">'.$row['name'].' - '.$row['Colour'].'<br>£'.$row['price']
+                                <div class="productSubtext">'.$row['name'].' - '.$row['Colour'].'<br>£'.$row['price'].$soldOut
                             .'  </div>
                                 
                             </td>';
