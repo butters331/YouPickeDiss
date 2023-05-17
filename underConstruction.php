@@ -68,8 +68,18 @@
         </h1>
         <!-- sign up to mailing list form -->
         <iframe name="formSending"></iframe>
+        
+        <script>
+            function submitForm() {
+                var frm = document.getElementById('constPageFormInner');
+                frm.submit(); // Submit the form
+                frm.reset();  // Reset all form data
+                return false; // Prevent page refresh
+            }
+        </script>
+
         <div class="signUpForm" id="constPageForm">
-            <form action="signUpForMailing.php" method="post" target="formSending">
+            <form id="constPageFormInner" action="signUpForMailing.php" method="post" target="formSending" onsubmit="submitForm()">
                 <!--<label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>-->
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->

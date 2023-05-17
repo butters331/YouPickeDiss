@@ -199,6 +199,24 @@ ul {
     margin: 0;
 }
 
+.btn-success {
+    --bs-btn-bg: rgba(0,175,80,255);
+    --bs-btn-border-color: rgba(0,175,80,255);
+    background-color: rgba(0,175,80,255);
+    border-color: rgba(0,175,80,255);
+}
+
+.btn-outline-success {
+    --bs-btn-color: rgba(0,175,80,255);
+    --bs-btn-border-color: rgba(0,175,80,255);
+    --bs-btn-hover-bg: rgba(0,175,80,255);
+    --bs-btn-hover-border-color: rgba(0,175,80,255);
+    --bs-btn-active-bg: rgba(0,175,80,255);
+    --bs-btn-active-border-color: rgba(0,175,80,255);
+    --bs-btn-disabled-color: rgba(0,175,80,255);
+    --bs-btn-disabled-border-color: rgba(0,175,80,255);
+}
+
 .carousel img {
     object-fit: contain;
 }
