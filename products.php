@@ -56,7 +56,7 @@
                         $newReleases = TRUE;
                         break;
                     case 1:
-                        $catName = "T-Shirt";
+                        $catName = "Vest";
                         break;
                     case 2:
                         $catName = "Hoodie";
@@ -65,7 +65,7 @@
                         $catName = "Joggers";
                         break;
                     case 4:
-                        $catName = "Shorts";
+                        $catName = "Tank Top";
                         break;
                     default:
                         $newReleases = TRUE;

@@ -193,18 +193,18 @@
                                 Shop
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menDropdown" style="position:relative;">
-                                <!-- <li>
-                                    <a href="products.php?category=1" class="dropdown-item text-light" style="font-size: 20px;">T-Shirts</a>
-                                </li> -->
                                 <li>
                                     <a href="products.php?category=2" class="dropdown-item text-light" style="font-size: 20px;">Hoodies</a>
                                 </li>
                                 <li>
                                     <a href="products.php?category=3" class="dropdown-item text-light" style="font-size: 20px;">Joggers</a>
                                 </li>
-                                <!-- <li>
-                                    <a href="products.php?category=4" class="dropdown-item text-light" style="font-size: 20px;">Shorts</a>
-                                </li> -->
+                                <li>
+                                    <a href="products.php?category=1" class="dropdown-item text-light" style="font-size: 20px;">Vests</a>
+                                </li>
+                                <li>
+                                    <a href="products.php?category=4" class="dropdown-item text-light" style="font-size: 20px;">Tank Tops</a>
+                                </li>
                             </ul>
                         </li>
                         <div>
