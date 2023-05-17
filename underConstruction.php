@@ -45,9 +45,9 @@
             header('Location: index.php');
         }
     ?>
-    <div>
+    <!-- <div>
         <div id="topRightEnterPass">
-            <!-- enter password form -->
+            // enter password form
             <iframe name="passSending"></iframe>
             <div class="signUpForm" id="passPageForm">
                 <form action="enterPassword.php" method="post" target="passSending">
@@ -55,15 +55,15 @@
                     <div style="display:table-cell; padding:2px;"><button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;">Enter</button></div>
                 </form>
             </div>
-        </div>
-        <div style="width:20%; float:right;">
-            <img src="Pictures/ypd.png" alt="YouPickedDiss" class="logoLanding">
-        </div>
-        
-        
+        </div> -->
+    <div>
+        <img src="Pictures/ypd.png" alt="YouPickedDiss" style=" display: block; width: 20%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
+<!--         
+        
+    </div> -->
     <div class="pageLayout">
-        <h1 id="loading">
+        <h1 id="loading" style="color:rgba(0,175,80,255);">
             Sign Up 4 early access!
         </h1>
         <!-- sign up to mailing list form -->
