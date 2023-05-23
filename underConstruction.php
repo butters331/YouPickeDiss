@@ -2,6 +2,13 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<?php
+  //set headers to NOT cache a page
+  header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
+  header("Pragma: no-cache"); //HTTP 1.0
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -79,12 +86,12 @@
         </script>
 
         <div class="signUpForm" id="constPageForm">
-            <form id="constPageFormInner" action="signUpForMailing.php" method="post" target="formSending" onsubmit="submitForm()">
+            <form id="constPageFormInner" action="signUpForMailing.php" method="post" target="formSending" >
                 <!--<label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>-->
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 <br>
-                <button type="submit" class="btn btn-success" style="margin-left: 0%; justify-content: left;">Click diss to sign up</button>
+                <button type="button" class="btn btn-success" style="margin-left: 0%; justify-content: left;" onclick="submitForm()">Click diss to sign up</button>
             </form>
         </div>
 
