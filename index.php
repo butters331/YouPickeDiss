@@ -11,6 +11,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    <link rel="stylesheet" href="youPickeDiss.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
+    <?php
+        include_once 'password.php';
+
+
+        //check password has been entered
+        if(md5($_POST['password']) != $password){
+            header('Location:underConstruction.php');
+        }
+    ?>
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -48,6 +58,10 @@
         <!-- connect to db and pull imgs -->
         <?php
             include_once 'dbConnect.php';
+
+            $_SESSION['passHash'] = md5($_POST['password']);
+            session_write_close();
+            
             if(isset($_GET['success'])){
                 echo "<h1 id='boughtDiss' style='text-align:center;color:rgb(0, 175, 80);' onload='clearBasket()'>You Bought Diss!</h1>";
             }

@@ -81,7 +81,7 @@
                     'maximum' => ['unit' => 'week', 'value' => 6],
                 ],
             ],
-            ],
+        ],
         [
             'shipping_rate_data' => 
             [

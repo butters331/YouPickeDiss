@@ -13,6 +13,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="cart.js"></script>
 
+    <?php
+        session_start();
+        include_once 'password.php';
+
+        //check password has been entered
+        if($_SESSION['passHash'] != $password){
+            header('Location:underConstruction.php');
+        }
+    ?>
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)

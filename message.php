@@ -13,6 +13,17 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="cart.js"></script>
 
+    <?php
+        include_once 'password.php';
+
+        session_start();
+
+        //check password has been entered
+        if($_SESSION['passHash'] != $password){
+            header('Location:underConstruction.php');
+        }
+    ?>
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
