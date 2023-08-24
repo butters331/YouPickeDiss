@@ -74,7 +74,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <form id="passwordForm" action="index.php" method="post">
+                <form id="passwordForm" action="passwordStore.php" method="post">
                     <!--<label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>-->
                     <input name="password" type="password" class="form-control" id="landingPassword" placeholder="password">
                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
@@ -87,7 +87,7 @@
 
     <div class="pageLayout">
         <h1 id="loading" style="color:rgba(0,175,80,255);">
-            Sign Up 4 early access!
+            Join the wait list!
         </h1>
         <!-- sign up to mailing list form -->
         <iframe name="formSending"></iframe>
@@ -107,7 +107,7 @@
                 <input name="email" type="email" class="form-control" id="landingSignUp" placeholder="4 your email" aria-describedby="emailHelp">
                 <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 <br>
-                <button type="button" class="btn btn-success" style="margin-left: 0%; justify-content: left;" onclick="submitForm()">Click diss to sign up</button>
+                <button type="button" class="btn btn-success" style="margin-left: 0%; justify-content: left;" onclick="submitForm()">Click diss to join</button>
             </form>
         </div>
 

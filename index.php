@@ -14,11 +14,13 @@
     <?php
         include_once 'password.php';
 
+        session_start();
 
         //check password has been entered
-        if(md5($_POST['password']) != $password){
+        if((md5($_POST['password']) != $password) && ($_SESSION['passHash'] != $password)){
             header('Location:underConstruction.php');
         }
+        
     ?>
 
     <!-- Facebook Pixel Code -->
@@ -58,10 +60,8 @@
         <!-- connect to db and pull imgs -->
         <?php
             include_once 'dbConnect.php';
-
-            $_SESSION['passHash'] = md5($_POST['password']);
-            session_write_close();
-            
+            // $_SESSION['passHash'] = md5($_POST['password']);
+               
             if(isset($_GET['success'])){
                 echo "<h1 id='boughtDiss' style='text-align:center;color:rgb(0, 175, 80);' onload='clearBasket()'>You Bought Diss!</h1>";
             }
