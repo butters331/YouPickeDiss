@@ -10,6 +10,10 @@
     * {
         font-size: 12px;
     }
+
+    .offcanvas-top{
+        height: 22vh;
+    }
 }
 
 body{
@@ -270,10 +274,6 @@ ul {
     padding: 10px;
 }
 
-.offcanvas-top{
-    height: 20vh;
-}
-
 .pageInfo {
     padding-top: 50px;
 }
@@ -353,6 +353,7 @@ ul {
         width: 40%;
         font-size: x-large;
     }
+    
     .productThumbnail {
         /* width: 60px;
         height: 100px; */
@@ -379,6 +380,8 @@ ul {
     .productLargeImg{
         height: 350px;
     }
+
+    
 }
 
 
