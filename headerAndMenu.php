@@ -205,6 +205,9 @@
                                 <li>
                                     <a href="products.php?category=4" class="dropdown-item text-light" style="font-size: 20px;">Tank Tops</a>
                                 </li>
+                                <li>
+                                    <a href="products.php?category=5" class="dropdown-item text-light" style="font-size: 20px;">Hats</a>
+                                </li>
                             </ul>
                         </li>
                         <div>

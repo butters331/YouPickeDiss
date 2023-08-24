@@ -64,9 +64,27 @@
     <div>
         <img src="Pictures/ypd.png" alt="YouPickedDiss" style=" display: block; width: 20%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
-<!--         
-        
-    </div> -->
+
+    <div id="constPagePass">
+        <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPassword" aria-controls="offcanvasPassword">4 ACCESS</button>
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasPassword" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasTopLabel">Enter the Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form id="passwordForm" action="enterPassword.php" method="post" target="formSending" >
+                    <!--<label for="landingSignUp" class="form-label">Be the first to know when we launch!</label>-->
+                    <input name="password" type="password" class="form-control" id="landingPassword" placeholder="4 the password">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    <br>
+                    <button type="button" class="btn btn-success" style="margin-left: 0%; justify-content: left;" onclick="submitPassword()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="pageLayout">
         <h1 id="loading" style="color:rgba(0,175,80,255);">
             Sign Up 4 early access!

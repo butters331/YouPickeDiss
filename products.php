@@ -67,6 +67,9 @@
                     case 4:
                         $catName = "Tank Top";
                         break;
+                    case 5:
+                        $catName = "Hat";
+                        break;
                     default:
                         $newReleases = TRUE;
                 }

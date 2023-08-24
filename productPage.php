@@ -115,7 +115,12 @@
                 <div class="preAddToBasket">
                     <?php 
                         if ($productInfoArray['inStock'] == 1){
-                            echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                            if ($prodID == 5){
+                                echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), `M`, setCorrectSizeID(`M`, `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                            }
+                            else{
+                                echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                            }
                         }
                         else {
                             echo '<button type="button" class="btn btn-outline-success">Sold Out</button>';
@@ -132,6 +137,8 @@
 
                 </div>
                 <br>
+
+                <?php if($prodID != 5): ?>
                 <div class="selectSize">
                     <select id="sizeSelector" class="form-select" aria-label="Select size">
                         <option value="XS">X-Small</option>
@@ -143,6 +150,7 @@
                     </select>
                 </div>
                 <br>
+                <?php endif; ?>
         
 
                 <h1 class="pageFormat"><?php echo $productInfoArray['name'].' - '.$productInfoArray['Colour'];?></h1>
@@ -158,13 +166,15 @@
                     Size Chart
                 </button>
                 <div class="modal fade" id="sizingModalPP" tabindex="-1" aria-labelledby="" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+                    <div class="modal-dialog modal-dialog-scrollable modal-xl modal-fullscreen-lg-down">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <img src="Pictures/sizechart.jpg" class="d-block w-100" alt="..." />
+                                <img src="Pictures\Products\SIZE CHART\0001.jpg" class="d-block w-100" alt="..." />
+                                <img src="Pictures\Products\SIZE CHART\0002.jpg" class="d-block w-100" alt="..." />
+                                <img src="Pictures\Products\SIZE CHART\0003.jpg" class="d-block w-100" alt="..." />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>

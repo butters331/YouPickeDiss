@@ -54,6 +54,15 @@ ul {
     margin-left: auto;
 }
 
+#constPagePass{
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #infoCentre{
     width: 33%;
     padding-left: 1em;
@@ -255,6 +264,14 @@ ul {
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
+}
+
+.nav-link {
+    padding: 10px;
+}
+
+.offcanvas-top{
+    height: 20vh;
 }
 
 .pageInfo {
