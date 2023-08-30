@@ -60,6 +60,7 @@
     $noOfImgs = mysqli_num_rows($productImgs);
 
     $productInfoArray = mysqli_fetch_assoc($productInfo);
+    $completelyOutOfStock = $productInfoArray['stockXS'] == 0 && $productInfoArray['stockS'] == 0 && $productInfoArray['stockM'] == 0 && $productInfoArray['stockL'] == 0 && $productInfoArray['stockXL'] == 0 && $productInfoArray['stockXXL'] == 0 && $productInfoArray['stockXXXL'] == 0;
     ?>
 
     <script>fbq('track', 'ViewContent');</script>
@@ -125,12 +126,12 @@
                 </div>
                 <div class="preAddToBasket">
                     <?php 
-                        if ($productInfoArray['inStock'] == 1){
+                        if (!$completelyOutOfStock){
                             if ($prodID == 5){
                                 echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), `M`, setCorrectSizeID(`M`, `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
                             }
                             else{
-                                echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`))">Basket Diss</button>';
+                                echo '<button type="button" id="productBasketDiss" class="btn btn-outline-success" onclick="addToBasket('.$productInfoArray['prodID'].',`'.$productInfoArray['name'].'`,'.$productInfoArray['price'].',`'.$firstImg.'`, getPreBasket(), getSize(), setCorrectSizeID(getSize(), `'.$productInfoArray['sizeXS'].'`, `'.$productInfoArray['sizeS'].'`, `'.$productInfoArray['sizeM'].'`, `'.$productInfoArray['sizeL'].'`, `'.$productInfoArray['sizeXL'].'`, `'.$productInfoArray['sizeXXL'].'`, `'.$productInfoArray['sizeXXXL'].'`))">Basket Diss</button>';
                             }
                         }
                         else {
@@ -140,9 +141,14 @@
                     <br />
                     <br />
                 </div>
+                <div id="stockLists" style="display: none;">
+                    <?php
+                        echo '['.$productInfoArray['stockXS'].','.$productInfoArray['stockS'].','.$productInfoArray['stockM'].','.$productInfoArray['stockL'].','.$productInfoArray['stockXL'].','.$productInfoArray['stockXXL'].','.$productInfoArray['stockXXXL'].']';
+                    ?>
+                </div>
                 <div class="quantityButton">
                     <?php 
-                        echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" onclick="incrementPreBasket()">+</button>';
+                        echo '<button type="button" class="btn btn-outline-secondary btn-xs" onclick="decrementPreBasket()">-</button><div id="productQuantity">  1  </div><button type="button" class="btn btn-outline-secondary btn-xs" id="incrementButton" onclick="incrementPreBasket()">+</button>';
                         mysqli_close($conn);
                     ?>
 
@@ -151,13 +157,51 @@
 
                 <?php if($prodID != 5): ?>
                 <div class="selectSize">
-                    <select id="sizeSelector" class="form-select" aria-label="Select size">
-                        <option value="XS">X-Small</option>
-                        <option value="S">Small</option>
-                        <option value="M" selected>Medium</option>
-                        <option value="L">Large</option>
-                        <option value="XL">X-Large</option>
-                        <option value="XXL">XX-Large</option>
+                    <select id="sizeSelector" class="form-select" aria-label="Select size" onChange="reEnableIncrement()">
+                        <?php 
+                            if($productInfoArray['stockXS'] <= 0){
+                                echo '<option value="XS" disabled>X-Small - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="XS">X-Small</option>';
+                            }
+                            if($productInfoArray['stockS'] <= 0){
+                                echo '<option value="S" disabled>Small - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="S">Small</option>';
+                            }
+                            if($productInfoArray['stockM'] <= 0){
+                                echo '<option value="M" disabled>Medium - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="M">Medium</option>';
+                            }
+                            if($productInfoArray['stockL'] <= 0){
+                                echo '<option value="L" disabled>Large - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="L">Large</option>';
+                            }
+                            if($productInfoArray['stockXL'] <= 0){
+                                echo '<option value="XL" disabled>X-Large - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="XL">X-Large</option>';
+                            }
+                            if($productInfoArray['stockXXL'] <= 0){
+                                echo '<option value="XXL" disabled>XX-Large - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="XXL">XX-Large</option>';
+                            }
+                            if($productInfoArray['stockXXXL'] <= 0){
+                                echo '<option value="XXXL" disabled>XXX-Large - Out of Stock</option>';
+                            }
+                            else {
+                                echo '<option value="XXXL">XXX-Large</option>';
+                            }
+                        ?>
                     </select>
                 </div>
                 <br>

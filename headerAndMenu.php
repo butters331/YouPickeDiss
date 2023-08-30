@@ -50,6 +50,8 @@
     include_once 'shippingVariables.php';
     require_once('../vendor/autoload.php');
 
+    
+
     $basketData = null;
     $basket = null;
 
@@ -161,6 +163,7 @@
         ?>
     </div>
 
+
     <!--logo import to top of page-->
     <div>
         <a href="index.php"><img class="logo" src="Pictures/ypd.png" alt="YouPickedDiss"></a>
@@ -251,5 +254,40 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div id="stockListsBasket" style="display: none;">
+            <?php 
+                $productStocksSQL = "SELECT prodID, stockXS, stockS, stockM, stockL, stockXL, stockXXL, stockXXXL FROM Products WHERE prodID=".$basket[0][0];
+                for ($item = 1; $item < count($basket); $item ++){
+                    $productStocksSQL .= " OR prodID=".$basket[$item][0];
+                }
+                $productStocksSQL .= ";";
+                // echo $productStocksSQL;
+                $productStocks = mysqli_query($conn, $productStocksSQL);
+                $arrayString = "[";
+                $first = true;
+                while($productStocksArray = mysqli_fetch_array($productStocks)){
+                    if ($first){
+                        $arrayString .= "[";
+                        $first = false;
+                    }
+                    else {
+                        $arrayString .= ", [";
+                    }
+                    for ($item = 0; $item < 8; $item ++){
+                        if ($item < 7){
+                            $arrayString .= $productStocksArray[$item].", ";
+                        }
+                        else {
+                            $arrayString .= $productStocksArray[$item];
+                        }
+                    }
+                    $arrayString .= "]";
+                }
+                $arrayString .= "]";
+                echo $arrayString;
+                
+            ?>
+            
         </div>
     </nav>    

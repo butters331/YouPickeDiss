@@ -112,7 +112,9 @@
                         $prodImgArray = mysqli_fetch_all($prodImgs);
                         $noOfImgs = mysqli_num_rows($prodImgs);
                         $soldOut = '';
-                        if ($row['inStock'] == 0){
+
+                        //if everything out of stock
+                        if ($row['stockXS'] == 0 && $row['stockS'] == 0 && $row['stockM'] == 0 && $row['stockL'] == 0 && $row['stockXL'] == 0 && $row['stockXXL'] == 0 && $row['stockXXXL'] == 0){
                             $soldOut = '<br><span style="color:rgba(0,175,80,255);font-size:22px;">Sold Out</span>';
                         }
                         if ($noOfImgs != 0){

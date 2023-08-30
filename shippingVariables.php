@@ -1,6 +1,6 @@
 <?php 
-    $ukShipping = 599;
-    $RoWshipping = 1499;
+    $ukShipping = 499;
+    $RoWshipping = 1799;
     $EUshipping = 999;
 
     $freeOver = 200;

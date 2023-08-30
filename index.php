@@ -61,10 +61,21 @@
         <?php
             include_once 'dbConnect.php';
             // $_SESSION['passHash'] = md5($_POST['password']);
-               
-            if(isset($_GET['success'])){
+            $basketPassed;
+            if (isset($_GET['success']) && isset($_SESSION['basket'])){
+                $basketPassed = json_decode($_SESSION['basket'], true);
+                $basket = json_decode($basketPassed['basket'], true);
+
+                $stockUpdateSQL = "";
+                
+                foreach ($basket as $basketEntry){
+                    $stockUpdateSQL .= "UPDATE Products SET stock".$basketEntry[5]." = stock".$basketEntry[5]." - ".$basketEntry[4]." WHERE prodID = ".$basketEntry[0].";";
+                }
+                unset($_SESSION['basket']);
+                $result = mysqli_query($conn, $stockUpdateSQL);
                 echo "<h1 id='boughtDiss' style='text-align:center;color:rgb(0, 175, 80);' onload='clearBasket()'>You Bought Diss!</h1>";
             }
+
             $getImages = "SELECT * FROM AboutPageImgs";
             $images = mysqli_query($conn, $getImages);
             $noOfImages = mysqli_num_rows($images);
