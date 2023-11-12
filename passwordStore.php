@@ -1,5 +1,5 @@
 <?php
     session_start();
-    $_SESSION['passHash'] = md5($_POST['password']);
+    $_SESSION['passHash'] = md5(strtolower($_POST['password']));
     header('Location:index.php');
 ?>

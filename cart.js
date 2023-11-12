@@ -1,6 +1,6 @@
 //pull basket from local storage
 var basket = sessionStorage.getItem('basket');
-var ukShipping = 5.99;
+var ukShipping = 4.99;
 var freeOver = 200.00;
 
 //if no basket yet, create an empty one

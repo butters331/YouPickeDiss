@@ -120,39 +120,39 @@
         ?>
 
          <!-- Carousel with photos on the front page -->
-         <div class="container" style="padding-top: 1em;">
+         <!-- <div class="container" style="padding-top: 1em;">
             <div id="landingCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <?php
-                        for ($count = 0; $count < $noOfImages; $count++){
-                            if ($count == 0) {
-                                echo '
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
-                            }
-                            else {
-                                echo '
-                    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count + 1).'"></button>';
-                            }
-                        }
+                    //     for ($count = 0; $count < $noOfImages; $count++){
+                    //         if ($count == 0) {
+                    //             echo '
+                    // <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+                    //         }
+                    //         else {
+                    //             echo '
+                    // <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="'.$count.'" aria-label="Slide '.($count + 1).'"></button>';
+                    //         }
+                    //     }
                     ?>
                 </div>
                 <div class="carousel-inner">
                 <?php
-                    for ($count = 0; $count < $noOfImages; $count++){
-                        $imageArray = mysqli_fetch_assoc($images);
-                        if ($count == 0) {
-                            echo '
-                    <div class="carousel-item active">
-                        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
-                    </div>';
-                        }
-                        else {
-                            echo '
-                    <div class="carousel-item">
-                        <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
-                    </div>';
-                        }
-                    }
+                    // for ($count = 0; $count < $noOfImages; $count++){
+                    //     $imageArray = mysqli_fetch_assoc($images);
+                    //     if ($count == 0) {
+                    //         echo '
+                    // <div class="carousel-item active">
+                    //     <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
+                    // </div>';
+                    //     }
+                    //     else {
+                    //         echo '
+                    // <div class="carousel-item">
+                    //     <img src="'.$imageArray["Path"].'" class="d-block w-100" alt="...">
+                    // </div>';
+                    //     }
+                    // }
                 ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
@@ -164,7 +164,7 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- footer import was here -->

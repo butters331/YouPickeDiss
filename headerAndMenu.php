@@ -64,11 +64,6 @@
                 'type' => 'fixed_amount',
                 'fixed_amount' => ['amount' => $ukShipping, 'currency' => 'gbp'],
                 'display_name' => 'UK Shipping',
-                'delivery_estimate' => 
-                [
-                    'minimum' => ['unit' => 'week', 'value' => 4],
-                    'maximum' => ['unit' => 'week', 'value' => 6],
-                ],
             ],
         ],
         [
@@ -77,11 +72,6 @@
                 'type' => 'fixed_amount',
                 'fixed_amount' => ['amount' => $EUshipping, 'currency' => 'gbp'],
                 'display_name' => 'European Shipping',
-                'delivery_estimate' => 
-                [
-                    'minimum' => ['unit' => 'week', 'value' => 4],
-                    'maximum' => ['unit' => 'week', 'value' => 6],
-                ],
             ],
         ],
         [
@@ -90,11 +80,6 @@
                 'type' => 'fixed_amount',
                 'fixed_amount' => ['amount' => $RoWshipping, 'currency' => 'gbp'],
                 'display_name' => 'Rest of the World Shipping',
-                'delivery_estimate' => 
-                [
-                    'minimum' => ['unit' => 'week', 'value' => 4],
-                    'maximum' => ['unit' => 'week', 'value' => 6],
-                ],
             ],
         ],
     ];
@@ -124,11 +109,6 @@
                         'type' => 'fixed_amount',
                         'fixed_amount' => ['amount' => 0, 'currency' => 'gbp'],
                         'display_name' => 'Free Shipping',
-                        'delivery_estimate' => 
-                        [
-                            'minimum' => ['unit' => 'week', 'value' => 4],
-                            'maximum' => ['unit' => 'week', 'value' => 6],
-                        ],
                     ],
                 ]
             ];
